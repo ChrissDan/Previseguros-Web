@@ -1,0 +1,167 @@
+<!-- ===========================
+= = = = =  index.html  = = = =
+Página: INICIO
+Ubicación: previseguros-web/index.html
+=========================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PREVISEGUROS | Inicio</title>
+  <link rel="icon" href="assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="PREVISEGUROS - Venta y asesoría de seguros para Personas y Empresas.">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="text-2xl font-extrabold tracking-tight">
+        <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-6 font-medium">
+        <li><a href="index.html" class="hover:text-orange-500">Inicio</a></li>
+        <li><a href="seguros.html" class="hover:text-orange-500">Seguros</a></li>
+        <li><a href="nosotros.html" class="hover:text-orange-500">Nosotros</a></li>
+        <li><a href="contacto.html" class="hover:text-orange-500">Contacto</a></li>
+        <li><a href="faq.html" class="hover:text-orange-500">Preguntas Frecuentes</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-2xl" aria-label="Abrir menú">☰</button>
+    </nav>
+    <!-- Menú móvil -->
+    <div id="menu" class="hidden md:hidden bg-white border-t shadow">
+      <div class="container mx-auto p-4 grid gap-2">
+        <a class="py-2 hover:text-orange-500" href="index.html">Inicio</a>
+        <a class="py-2 hover:text-orange-500" href="seguros.html">Seguros</a>
+        <a class="py-2 hover:text-orange-500" href="nosotros.html">Nosotros</a>
+        <a class="py-2 hover:text-orange-500" href="contacto.html">Contacto</a>
+        <a class="py-2 hover:text-orange-500" href="faq.html">Preguntas Frecuentes</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <!-- Carrusel -->
+    <section class="relative">
+      <div id="carousel" class="overflow-hidden relative h-[60vh] md:h-[75vh]">
+        <!-- Slides -->
+        <div class="carousel-track flex w-[300%] h-full transition-transform duration-700 ease-in-out">
+          <div class="carousel-slide w-full shrink-0 relative">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Familia protegida">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+              <div class="max-w-3xl">
+                <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-3">Protegemos lo que más valoras</h1>
+                <p class="text-white/90 md:text-lg">Soluciones de seguros para Personas y Empresas con respaldo de las mejores aseguradoras.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide w-full shrink-0 relative">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Seguros para empresas">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+              <div class="max-w-3xl">
+                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-3">Asesoría experta y cercana</h2>
+                <p class="text-white/90 md:text-lg">Te ayudamos a elegir la cobertura ideal según tu etapa y objetivos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-slide w-full shrink-0 relative">
+            <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Seguros de vehículos y viaje">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+              <div class="max-w-3xl">
+                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-3">Respaldo que inspira confianza</h2>
+                <p class="text-white/90 md:text-lg">Trabajamos con las principales aseguradoras del país.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles -->
+        <button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 grid place-items-center">‹</button>
+        <button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 grid place-items-center">›</button>
+
+        <!-- Indicadores -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/60"></button>
+          <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/60"></button>
+          <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/60"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Por qué elegir PREVISEGUROS -->
+    <section class="container mx-auto px-6 py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6">¿Por qué elegir <span class="text-orange-500">PREVISEGUROS</span>?</h2>
+      <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Combinamos experiencia, cercanía y respaldo para brindarte una asesoría integral. Nuestro objetivo es que tomes decisiones informadas y seguras.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-bold text-xl mb-2">Asesoría Personalizada</h3>
+          <p class="text-gray-600">Análisis de necesidades y diseño de coberturas a tu medida.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-bold text-xl mb-2">Procesos Ágiles</h3>
+          <p class="text-gray-600">Cotización y emisión rápida. Acompañamiento en siniestros.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-bold text-xl mb-2">Respaldo Real</h3>
+          <p class="text-gray-600">Alianzas con aseguradoras líderes del mercado peruano.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trayectoria -->
+    <section class="bg-gradient-to-br from-orange-50 to-white border-y">
+      <div class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6">Nuestra Trayectoria</h2>
+        <p class="text-center text-gray-600 max-w-3xl mx-auto">Más de 20 años asesorando a familias y empresas en todo el Perú. Crecemos contigo, innovamos para ti y nos mantenemos a tu lado cuando más lo necesitas.</p>
+      </div>
+    </section>
+
+    <!-- Seguros más vendidos -->
+    <section class="container mx-auto px-6 py-16">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">Seguros más vendidos</h2>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6">
+          <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=1200&auto=format&fit=crop" alt="Seguro de Vida" class="rounded-xl mb-4 h-40 w-full object-cover">
+          <h3 class="font-bold text-xl mb-2">Vida</h3>
+          <p class="text-gray-600">Protección financiera para tu familia.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6">
+          <img src="https://images.unsplash.com/photo-1587502537147-9b7be9bba7d5?q=80&w=1200&auto=format&fit=crop" alt="Seguro de Salud" class="rounded-xl mb-4 h-40 w-full object-cover">
+          <h3 class="font-bold text-xl mb-2">Salud</h3>
+          <p class="text-gray-600">Cobertura médica integral.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6">
+          <img src="https://images.unsplash.com/photo-1517673400267-0251440c45dc?q=80&w=1200&auto=format&fit=crop" alt="Seguro de Vehículos" class="rounded-xl mb-4 h-40 w-full object-cover">
+          <h3 class="font-bold text-xl mb-2">Vehículos</h3>
+          <p class="text-gray-600">Tranquilidad en cada viaje.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Socios estratégicos -->
+    <section class="bg-white">
+      <div class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-8">Socios estratégicos</h2>
+        <p class="text-center text-gray-600 mb-8">Aseguradoras líderes que confían en nuestro trabajo.</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+          <div class="bg-gray-100 h-16 rounded-xl grid place-items-center text-gray-500">Logo 1</div>
+          <div class="bg-gray-100 h-16 rounded-xl grid place-items-center text-gray-500">Logo 2</div>
+          <div class="bg-gray-100 h-16 rounded-xl grid place-items-center text-gray-500">Logo 3</div>
+          <div class="bg-gray-100 h-16 rounded-xl grid place-items-center text-gray-500">Logo 4</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-200 text-center p-6">
+    <p>&copy; 2025 PREVISEGUROS. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

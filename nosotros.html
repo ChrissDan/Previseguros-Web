@@ -1,0 +1,145 @@
+<!-- ===========================
+= = = = =  nosotros.html  = = = =
+Página: NOSOTROS
+Ubicación: previseguros-web/nosotros.html
+=========================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVISEGUROS | Nosotros</title>
+  <link rel="icon" href="assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="text-2xl font-extrabold tracking-tight">
+        <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-6 font-medium">
+        <li><a href="index.html" class="hover:text-orange-500">Inicio</a></li>
+        <li><a href="seguros.html" class="hover:text-orange-500">Seguros</a></li>
+        <li><a href="nosotros.html" class="text-orange-500 font-semibold">Nosotros</a></li>
+        <li><a href="contacto.html" class="hover:text-orange-500">Contacto</a></li>
+        <li><a href="faq.html" class="hover:text-orange-500">Preguntas Frecuentes</a></li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-2xl" aria-label="Abrir menú">☰</button>
+    </nav>
+    <div id="menu" class="hidden md:hidden bg-white border-t shadow">
+      <div class="container mx-auto p-4 grid gap-2">
+        <a class="py-2 hover:text-orange-500" href="index.html">Inicio</a>
+        <a class="py-2 hover:text-orange-500" href="seguros.html">Seguros</a>
+        <a class="py-2 hover:text-orange-500" href="nosotros.html">Nosotros</a>
+        <a class="py-2 hover:text-orange-500" href="contacto.html">Contacto</a>
+        <a class="py-2 hover:text-orange-500" href="faq.html">Preguntas Frecuentes</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="relative">
+      <img src="https://images.unsplash.com/photo-1531379410502-63bfe8cdaf6f?q=80&w=1600&auto=format&fit=crop" class="w-full h-64 md:h-80 object-cover" alt="Nuestro equipo">
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 grid place-items-center">
+        <h1 class="text-white text-3xl md:text-5xl font-extrabold">Nosotros</h1>
+      </div>
+    </section>
+
+    <!-- Misión / Visión / Valores / Trayectoria -->
+    <section class="container mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-2xl font-extrabold mb-3">Misión</h2>
+          <p class="text-gray-600">Brindar tranquilidad y respaldo a nuestros clientes mediante soluciones de seguros claras, justas y oportunas.</p>
+
+          <h2 class="text-2xl font-extrabold mt-8 mb-3">Visión</h2>
+          <p class="text-gray-600">Ser referentes de asesoría de seguros a nivel nacional, reconocidos por la cercanía y la innovación.</p>
+
+          <h2 class="text-2xl font-extrabold mt-8 mb-3">Valores</h2>
+          <ul class="list-disc ml-6 text-gray-600 space-y-1">
+            <li>Confianza</li>
+            <li>Transparencia</li>
+            <li>Responsabilidad</li>
+            <li>Empatía</li>
+            <li>Excelencia</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl font-extrabold mb-3">Trayectoria</h2>
+          <p class="text-gray-600">Más de 20 años trabajando de la mano con personas y empresas, atendiendo siniestros con compromiso y diseñando coberturas que se ajustan a cada perfil de riesgo.</p>
+          <div class="grid grid-cols-3 gap-4 mt-6">
+            <div class="bg-white p-4 rounded-xl shadow text-center">
+              <div class="text-3xl font-extrabold text-orange-500">20+</div>
+              <div class="text-gray-500 text-sm">Años</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow text-center">
+              <div class="text-3xl font-extrabold text-orange-500">5k+</div>
+              <div class="text-gray-500 text-sm">Clientes</div>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow text-center">
+              <div class="text-3xl font-extrabold text-orange-500">15+</div>
+              <div class="text-gray-500 text-sm">Aseguradoras</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nuestro equipo -->
+    <section class="bg-white border-y">
+      <div class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">Nuestro Equipo</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Miembro 1 -->
+          <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=800&auto=format&fit=crop" alt="Asesor 1" class="w-28 h-28 object-cover rounded-full mx-auto mb-3">
+            <h3 class="font-bold">Ana Torres</h3>
+            <p class="text-gray-500 text-sm mb-3">Asesora Senior</p>
+            <a class="inline-flex items-center gap-2 text-green-600 font-semibold hover:underline" href="https://wa.me/51987654321" target="_blank" rel="noopener">
+              <span>WhatsApp</span> ➜
+            </a>
+          </div>
+          <!-- Miembro 2 -->
+          <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Asesor 2" class="w-28 h-28 object-cover rounded-full mx-auto mb-3">
+            <h3 class="font-bold">Luis Pérez</h3>
+            <p class="text-gray-500 text-sm mb-3">Especialista Empresas</p>
+            <a class="inline-flex items-center gap-2 text-green-600 font-semibold hover:underline" href="https://wa.me/51999888777" target="_blank" rel="noopener">
+              <span>WhatsApp</span> ➜
+            </a>
+          </div>
+          <!-- Miembro 3 -->
+          <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
+            <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?q=80&w=800&auto=format&fit=crop" alt="Asesor 3" class="w-28 h-28 object-cover rounded-full mx-auto mb-3">
+            <h3 class="font-bold">María Gómez</h3>
+            <p class="text-gray-500 text-sm mb-3">Vida y Salud</p>
+            <a class="inline-flex items-center gap-2 text-green-600 font-semibold hover:underline" href="https://wa.me/51911222333" target="_blank" rel="noopener">
+              <span>WhatsApp</span> ➜
+            </a>
+          </div>
+          <!-- Miembro 4 -->
+          <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop" alt="Asesor 4" class="w-28 h-28 object-cover rounded-full mx-auto mb-3">
+            <h3 class="font-bold">Carlos Rivas</h3>
+            <p class="text-gray-500 text-sm mb-3">Autos y SOAT</p>
+            <a class="inline-flex items-center gap-2 text-green-600 font-semibold hover:underline" href="https://wa.me/51944556677" target="_blank" rel="noopener">
+              <span>WhatsApp</span> ➜
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-200 text-center p-6">
+    <p>&copy; 2025 PREVISEGUROS. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
