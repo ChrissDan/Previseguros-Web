@@ -17,20 +17,31 @@
   const dots = Array.from(document.querySelectorAll('.carousel-dot'));
 
   let index = 0;
+  let interval;
+
   const goTo = (i) => {
     index = (i + slides.length) % slides.length;
     track.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((d, di)=> d.style.opacity = di === index ? '1' : '0.6');
+    dots.forEach((d, di) => {
+      d.classList.toggle("bg-white", di === index);
+      d.classList.toggle("bg-white/60", di !== index);
+    });
   };
 
-  prev?.addEventListener('click', ()=> goTo(index - 1));
-  next?.addEventListener('click', ()=> goTo(index + 1));
-  dots.forEach((d, di)=> d.addEventListener('click', ()=> goTo(di)));
+  const startAutoPlay = () => {
+    stopAutoPlay();
+    interval = setInterval(() => goTo(index + 1), 5000);
+  };
+  const stopAutoPlay = () => clearInterval(interval);
 
-  // autoplay
-  setInterval(()=> goTo(index + 1), 5000);
+  prev?.addEventListener('click', () => { goTo(index - 1); startAutoPlay(); });
+  next?.addEventListener('click', () => { goTo(index + 1); startAutoPlay(); });
+  dots.forEach((d, di) => d.addEventListener('click', () => { goTo(di); startAutoPlay(); }));
+
   goTo(0);
+  startAutoPlay();
 })();
+
 
 // ======= Seguros (tabs + render) en seguros.html =======
 (function initSeguros(){
@@ -96,3 +107,11 @@
     }, 400);
   });
 })();
+
+// Inicializar AOS cuando cargue la página
+document.addEventListener("DOMContentLoaded", function () {
+  AOS.init({
+    duration: 1000,  // Duración de animación en ms (1s)
+    once: true       // Ejecutar solo una vez al hacer scroll
+  });
+});
