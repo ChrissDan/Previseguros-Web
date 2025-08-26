@@ -1,5 +1,5 @@
 // ======= Menú móvil (todas las páginas) =======
-(function initMobileMenu(){
+(function initMobileMenu() {
   const btn = document.getElementById('menu-btn');
   const menu = document.getElementById('menu');
   if (btn && menu) {
@@ -8,7 +8,7 @@
 })();
 
 // ======= Carrusel (solo index.html) =======
-(function initCarousel(){
+(function initCarousel() {
   const track = document.querySelector('.carousel-track');
   if (!track) return;
   const slides = Array.from(track.children);
@@ -44,7 +44,7 @@
 
 
 // ======= Seguros (tabs + render) en seguros.html =======
-(function initSeguros(){
+(function initSeguros() {
   const lista = document.getElementById('lista-seguros');
   if (!lista) return;
   const titulo = document.getElementById('seguro-titulo');
@@ -52,10 +52,10 @@
   const tabEmpresas = document.getElementById('tab-empresas');
   const tabPersonas = document.getElementById('tab-personas');
 
-  const PERSONAS = ["Vida","Salud","Oncológico","Vehículos","SOAT","EPS Individual","Accidentes Personales","Domiciliarios","Viaje"];
-  const EMPRESAS = ["SCTR","Vida Ley","Multirriesgo","Responsabilidad Civil","3D","Transporte","CAR","EAR","Vehicular Flotas","TREC"];
+  const PERSONAS = ["Vida", "Salud", "Oncológico", "Vehículos", "SOAT", "EPS Individual", "Accidentes Personales", "Domiciliarios", "Viaje"];
+  const EMPRESAS = ["SCTR", "Vida Ley", "Multirriesgo", "Responsabilidad Civil", "3D", "Transporte", "CAR", "EAR", "Vehicular Flotas", "TREC"];
 
-  function card(nombre){
+  /*function card(nombre){
     return `
       <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6">
         <div class="h-36 rounded-xl overflow-hidden mb-4 bg-gray-100">
@@ -65,28 +65,43 @@
         <p class="text-gray-600 text-sm">Cobertura flexible y asesoría dedicada. Solicita tu cotización.</p>
       </div>
     `;
+  }*/
+  function card(nombre) {
+    const slug = nombre.toLowerCase().replace(/\s+/g, '-'); // "Vida Ley" -> "vida-ley"
+    return `
+    <a href="detalleSeguro.html?tipo=${slug}" class="block">
+      <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6">
+        <div class="h-36 rounded-xl overflow-hidden mb-4 bg-gray-100">
+          <img class="w-full h-full object-cover" src="https://source.unsplash.com/600x400/?insurance,${encodeURIComponent(nombre)}" alt="${nombre}">
+        </div>
+        <h3 class="font-bold text-lg mb-2">${nombre}</h3>
+        <p class="text-gray-600 text-sm">Cobertura flexible y asesoría dedicada. Solicita tu cotización.</p>
+      </div>
+    </a>
+  `;
   }
 
-  function render(tipo="Empresas"){
+
+  function render(tipo = "Empresas") {
     const data = tipo === "Personas" ? PERSONAS : EMPRESAS;
     lista.innerHTML = data.map(card).join('');
     titulo.textContent = `Seguros para ${tipo}`;
     pill.textContent = tipo;
-    pill.className = "px-3 py-1 rounded-full text-sm font-semibold " + (tipo==="Personas" ? "bg-orange-100 text-orange-700" : "bg-orange-100 text-orange-700");
+    pill.className = "px-3 py-1 rounded-full text-sm font-semibold " + (tipo === "Personas" ? "bg-orange-100 text-orange-700" : "bg-orange-100 text-orange-700");
   }
 
-  tabEmpresas?.addEventListener('click', ()=> render("Empresas"));
-  tabPersonas?.addEventListener('click', ()=> render("Personas"));
+  tabEmpresas?.addEventListener('click', () => render("Empresas"));
+  tabPersonas?.addEventListener('click', () => render("Personas"));
 
   render("Empresas"); // inicio por defecto
 
   // Formulario (demo)
   const form = document.getElementById('form-cotizar');
   const status = document.getElementById('form-status');
-  form?.addEventListener('submit', (e)=>{
+  form?.addEventListener('submit', (e) => {
     e.preventDefault();
     // Aquí podrías integrar EmailJS, Formspree o tu backend
-    setTimeout(()=>{
+    setTimeout(() => {
       status?.classList.remove('hidden');
       form.reset();
     }, 400);
@@ -94,14 +109,14 @@
 })();
 
 // ======= Formulario de contacto (contacto.html) =======
-(function initContacto(){
+(function initContacto() {
   const form = document.getElementById('form-contacto');
   const status = document.getElementById('contacto-status');
   if (!form) return;
-  form.addEventListener('submit', (e)=>{
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     // Integra EmailJS/Formspree/backend si deseas envío real.
-    setTimeout(()=>{
+    setTimeout(() => {
       status?.classList.remove('hidden');
       form.reset();
     }, 400);
@@ -115,3 +130,55 @@ document.addEventListener("DOMContentLoaded", function () {
     once: true       // Ejecutar solo una vez al hacer scroll
   });
 });
+
+// 1. Obtener el parámetro "tipo" de la URL
+const params = new URLSearchParams(window.location.search);
+const tipo = params.get("tipo");
+
+// 2. Base de datos de seguros
+const seguros = {
+  vida: {
+    titulo: "Seguro de Vida",
+    descripcion: "Protege a tu familia con un seguro de vida que se adapta a ti.",
+    img: "img/vida.jpg",
+    coberturas: ["Muerte natural", "Muerte accidental", "Invalidez permanente"]
+  },
+  salud: {
+    titulo: "Seguro de Salud",
+    descripcion: "Accede a una red amplia de clínicas y hospitales.",
+    img: "img/salud.jpg",
+    coberturas: ["Consultas médicas", "Hospitalización", "Medicinas"]
+  },
+  auto: {
+    titulo: "Seguro Vehicular",
+    descripcion: "Protege tu auto ante accidentes, robos y daños a terceros.",
+    img: "img/auto.jpg",
+    coberturas: ["Choque", "Robo total", "Responsabilidad civil"]
+  },
+  soat: {
+    titulo: "SOAT",
+    descripcion: "Seguro Obligatorio de Accidentes de Tránsito.",
+    img: "img/soat.jpg",
+    coberturas: ["Atención médica", "Indemnización por muerte", "Invalidez permanente"]
+  }
+};
+
+// 3. Mostrar información según tipo
+if (seguros[tipo]) {
+  document.getElementById("titulo-seguro").textContent = seguros[tipo].titulo;
+
+  document.getElementById("contenido-seguro").innerHTML = `
+    <img src="${seguros[tipo].img}" alt="${seguros[tipo].titulo}">
+    <p>${seguros[tipo].descripcion}</p>
+    <h3>Coberturas:</h3>
+    <ul>
+      ${seguros[tipo].coberturas.map(c => `<li>${c}</li>`).join("")}
+    </ul>
+  `;
+} else {
+  document.getElementById("titulo-seguro").textContent = "Seguro no encontrado";
+  document.getElementById("contenido-seguro").innerHTML = `
+    <p>Por favor selecciona un seguro válido.</p>
+  `;
+}
+

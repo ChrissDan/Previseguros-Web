@@ -12,8 +12,8 @@ Ubicación: previseguros-web/index.html
   <title>PREVISEGUROS | Inicio</title>
   <link rel="icon" href="assets/favicon.png">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
   <meta name="description" content="PREVISEGUROS - Venta y asesoría de seguros para Personas y Empresas.">
 </head>
 
@@ -22,10 +22,11 @@ Ubicación: previseguros-web/index.html
   <header class="bg-white shadow-md fixed w-full z-50">
     <nav class="container mx-auto flex justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-extrabold tracking-tight">
-        <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span>
+        <!-- <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span> -->
+        <img src="img/logo1.jpg" alt="Logo de la empresa" class="w-48 h-auto">
       </a>
       <ul class="hidden md:flex items-center gap-6 font-medium">
-        <li><a href="index.html" class="hover:text-orange-500">Inicio</a></li>
+        <li><a href="index.html" class="text-orange-500 font-semibold">Inicio</a></li>
         <li><a href="seguros.html" class="hover:text-orange-500">Seguros</a></li>
         <li><a href="nosotros.html" class="hover:text-orange-500">Nosotros</a></li>
         <li><a href="contacto.html" class="hover:text-orange-500">Contacto</a></li>
@@ -33,7 +34,6 @@ Ubicación: previseguros-web/index.html
       </ul>
       <button id="menu-btn" class="md:hidden text-2xl" aria-label="Abrir menú">☰</button>
     </nav>
-    <!-- Menú móvil -->
     <div id="menu" class="hidden md:hidden bg-white border-t shadow">
       <div class="container mx-auto p-4 grid gap-2">
         <a class="py-2 hover:text-orange-500" href="index.html">Inicio</a>
@@ -48,41 +48,60 @@ Ubicación: previseguros-web/index.html
   <main class="pt-24">
     <!-- Carrusel -->
     <section class="relative">
-      <div id="carousel" class="overflow-hidden relative h-[60vh] md:h-[75vh]">
+      <div id="carousel" class="overflow-hidden relative h-[75vh] md:h-[90vh]">
         <!-- Slides -->
         <div class="carousel-track flex w-[300%] h-full transition-transform duration-700 ease-in-out">
+
+          <!-- Slide 1 -->
           <div class="carousel-slide w-full shrink-0 relative">
             <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop"
               class="w-full h-full object-cover" alt="Familia protegida">
             <div class="absolute inset-0 bg-black/40"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-              <div class="max-w-3xl">
-                <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-3">Protegemos lo que más valoras</h1>
-                <p class="text-white/90 md:text-lg">Soluciones de seguros para Personas y Empresas con respaldo de las
-                  mejores aseguradoras.</p>
+
+            <!-- Texto -->
+            <div class="absolute inset-0 flex items-center px-10 md:px-20">
+              <div class="max-w-lg text-left">
+                <h1 class="text-white text-3xl md:text-5xl font-extrabold mb-4">Protegemos lo que más valoras</h1>
+                <p class="text-white/90 md:text-lg mb-6">Soluciones de seguros para Personas y Empresas con respaldo de
+                  las mejores aseguradoras.</p>
+                <a href="seguros.html"
+                  class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Conoce
+                  más</a>
               </div>
             </div>
           </div>
+
+          <!-- Slide 2 -->
           <div class="carousel-slide w-full shrink-0 relative">
             <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop"
               class="w-full h-full object-cover" alt="Seguros para empresas">
             <div class="absolute inset-0 bg-black/40"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-              <div class="max-w-3xl">
-                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-3">Asesoría experta y cercana</h2>
-                <p class="text-white/90 md:text-lg">Te ayudamos a elegir la cobertura ideal según tu etapa y objetivos.
-                </p>
+
+            <div class="absolute inset-0 flex items-center justify-end px-10 md:px-20">
+              <div class="max-w-lg text-right">
+                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-4">Asesoría experta y cercana</h2>
+                <p class="text-white/90 md:text-lg mb-6">Te ayudamos a elegir la cobertura ideal según tu etapa y
+                  objetivos.</p>
+                <a href="contacto.html"
+                  class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Habla
+                  con un asesor</a>
               </div>
             </div>
           </div>
+
+          <!-- Slide 3 -->
           <div class="carousel-slide w-full shrink-0 relative">
             <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?q=80&w=1600&auto=format&fit=crop"
               class="w-full h-full object-cover" alt="Seguros de vehículos y viaje">
             <div class="absolute inset-0 bg-black/40"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-              <div class="max-w-3xl">
-                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-3">Respaldo que inspira confianza</h2>
-                <p class="text-white/90 md:text-lg">Trabajamos con las principales aseguradoras del país.</p>
+
+            <div class="absolute inset-0 flex items-center px-10 md:px-20">
+              <div class="max-w-lg text-left">
+                <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-4">Respaldo que inspira confianza</h2>
+                <p class="text-white/90 md:text-lg mb-6">Trabajamos con las principales aseguradoras del país.</p>
+                <a href="nosotros.html"
+                  class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Nuestra
+                  historia</a>
               </div>
             </div>
           </div>
@@ -103,11 +122,16 @@ Ubicación: previseguros-web/index.html
       </div>
     </section>
 
-    <section class="py-20 bg-gray-100">
+    <!-- Logo de la empresa -->
+    <div class="flex justify-center py-8">
+      <img src="img/logo.gif" alt="Logo de la empresa" class="w-80 h-auto">
+    </div>
+
+    <!-- ¿Por qué elegirnos? -->
+    <section class="py-20 bg-gradient-to-br from-orange-50 via-white to-gray-100">
       <div class="max-w-7xl mx-auto px-6 text-center">
         <h2 class="text-3xl font-bold text-gray-800 mb-12">¿Por qué elegir Previseguros?</h2>
         <div class="grid md:grid-cols-3 gap-8">
-
           <!-- Tarjeta 1 -->
           <div class="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition" data-aos="fade-up"
             data-aos-delay="100">
@@ -115,7 +139,6 @@ Ubicación: previseguros-web/index.html
             <p class="text-gray-600">Recibe un acompañamiento cercano para elegir la mejor opción de seguro según tus
               necesidades.</p>
           </div>
-
           <!-- Tarjeta 2 -->
           <div class="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition" data-aos="fade-up"
             data-aos-delay="200">
@@ -123,7 +146,6 @@ Ubicación: previseguros-web/index.html
             <p class="text-gray-600">Olvídate de los trámites engorrosos. Te ayudamos a gestionar tu seguro de manera
               rápida y sencilla.</p>
           </div>
-
           <!-- Tarjeta 3 -->
           <div class="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition" data-aos="fade-up"
             data-aos-delay="300">
@@ -131,11 +153,9 @@ Ubicación: previseguros-web/index.html
             <p class="text-gray-600">Con Previseguros, tienes la seguridad de contar con un equipo comprometido a
               responder cuando más lo necesites.</p>
           </div>
-
         </div>
       </div>
     </section>
-
 
     <!-- Trayectoria -->
     <section class="bg-gradient-to-br from-orange-50 to-white border-y">
@@ -149,59 +169,51 @@ Ubicación: previseguros-web/index.html
     <!-- Seguros más vendidos -->
     <section class="container mx-auto px-6 py-16">
       <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">Seguros más vendidos</h2>
-
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-
         <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1723507291530-47c2f7aa9197?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Seguro de Vida" class="rounded-xl mb-4 h-40 w-full object-cover">
+          <img src="https://plus.unsplash.com/premium_photo-1723507291530-47c2f7aa9197?q=80&w=1170&auto=format&fit=crop"
+            alt="Seguro de Vida" class="rounded-xl mb-4 h-44 w-full object-cover">
           <h3 class="font-bold text-xl mb-2">Vida</h3>
           <p class="text-gray-600">Protección financiera para tu familia.</p>
         </div>
-
         <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1673953509975-576678fa6710?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Seguro de Salud" class="rounded-xl mb-4 h-40 w-full object-cover">
+          <img src="https://plus.unsplash.com/premium_photo-1673953509975-576678fa6710?q=80&w=1170&auto=format&fit=crop"
+            alt="Seguro de Salud" class="rounded-xl mb-4 h-44 w-full object-cover">
           <h3 class="font-bold text-xl mb-2">Salud</h3>
           <p class="text-gray-600">Cobertura médica integral.</p>
         </div>
-
         <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-          <img
-            src="https://images.unsplash.com/photo-1713623311317-d3c43a4be4cf?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Seguro de Vehículos" class="rounded-xl mb-4 h-40 w-full object-cover">
+          <img src="https://images.unsplash.com/photo-1713623311317-d3c43a4be4cf?q=80&w=1074&auto=format&fit=crop"
+            alt="Seguro de Vehículos" class="rounded-xl mb-4 h-44 w-full object-cover">
           <h3 class="font-bold text-xl mb-2">Vehículos</h3>
           <p class="text-gray-600">Tranquilidad en cada viaje.</p>
         </div>
-
       </div>
     </section>
 
-
-    <!-- Socios estratégicos -->
-    <section class="bg-white">
+    <section class="bg-gradient-to-r from-white via-orange-50 to-white">
       <div class="container mx-auto px-6 py-16 overflow-hidden">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-8">Socios estratégicos</h2>
-        <p class="text-center text-gray-600 mb-8">Aseguradoras líderes que confían en nuestro trabajo.</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-8 text-orange-500 tracking-wide">
+          Socios Estratégicos
+        </h2>
+        <p class="text-center text-gray-600 mb-8">
+          Aseguradoras líderes que confían en nuestro trabajo.
+        </p>
 
         <!-- Carrusel de logos -->
         <div class="relative w-full overflow-hidden">
-          <div class="flex items-center space-x-12 animate-scroll">
-            <img src="img/mapfre1.png" alt="Mapfre" class="h-12 object-contain">
-            <img src="img/pacifico.png" alt="Pacífico Seguros" class="h-12 object-contain">
-            <img src="img/rimac.png" alt="Rímac Seguros" class="h-12 object-contain">
-            <img src="img/positiva.png" alt="La Positiva Seguros" class="h-12 object-contain">
-            <img src="img/qualitas.png" alt="Qualitas Seguros" class="h-12 object-contain">
-
-            <!-- Duplicamos para efecto infinito -->
-            <img src="img/mapfre1.png" alt="Mapfre" class="h-12 object-contain">
-            <img src="img/pacifico.png" alt="Pacífico Seguros" class="h-12 object-contain">
-            <img src="img/rimac.png" alt="Rímac Seguros" class="h-12 object-contain">
-            <img src="img/positiva.png" alt="La Positiva Seguros" class="h-12 object-contain">
-            <img src="img/qualitas.png" alt="Qualitas Seguros" class="h-12 object-contain">
-
+          <div class="socios-track flex items-center space-x-16">
+            <img src="img/mapfre1.png" alt="Mapfre" class="h-16 object-contain">
+            <img src="img/pacifico.png" alt="Pacífico Seguros" class="h-16 object-contain">
+            <img src="img/rimac.png" alt="Rímac Seguros" class="h-16 object-contain">
+            <img src="img/positiva.png" alt="La Positiva Seguros" class="h-16 object-contain">
+            <img src="img/qualitas.png" alt="Qualitas Seguros" class="h-16 object-contain">
+            <!-- Duplicados para loop infinito -->
+            <img src="img/mapfre1.png" alt="Mapfre" class="h-16 object-contain">
+            <img src="img/pacifico.png" alt="Pacífico Seguros" class="h-16 object-contain">
+            <img src="img/rimac.png" alt="Rímac Seguros" class="h-16 object-contain">
+            <img src="img/positiva.png" alt="La Positiva Seguros" class="h-16 object-contain">
+            <img src="img/qualitas.png" alt="Qualitas Seguros" class="h-16 object-contain">
           </div>
         </div>
       </div>
@@ -213,12 +225,9 @@ Ubicación: previseguros-web/index.html
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-center md:text-left">
-
       <!-- Logo y descripción -->
       <div>
-        <h3 class="text-2xl font-bold mb-3">
-          <span class="text-orange-500">PREVI</span><span class="text-white">SEGUROS</span>
-        </h3>
+        <h3 class="text-2xl font-bold mb-3"><span class="text-orange-500">PREVISEGUROS</span></h3>
         <p class="text-gray-400 text-sm">Más de 20 años protegiendo familias y empresas en todo el Perú. Confianza,
           respaldo y asesoría personalizada.</p>
       </div>
@@ -227,35 +236,27 @@ Ubicación: previseguros-web/index.html
       <div class="md:col-span-2">
         <h4 class="text-lg font-semibold mb-3 text-center md:text-left">Contacto</h4>
         <div class="grid md:grid-cols-2 gap-6 items-center">
-
-          <!-- Datos de contacto + Redes -->
+          <!-- Datos + Redes -->
           <div class="space-y-3 text-sm">
             <ul class="space-y-2">
               <li>📍 Av. Principal 123, Lima, Perú</li>
               <li>📞 +51 987 654 321</li>
               <li>✉️ contacto@previseguros.com</li>
             </ul>
-            
             <!-- Redes sociales -->
             <div class="flex justify-center md:justify-start gap-4 pt-2">
-              <a href="https://facebook.com" target="_blank">
-                <img src="img/fb.png" alt="Facebook" class="w-8 h-8 hover:opacity-70 transition">
-              </a>
-              <a href="https://instagram.com" target="_blank">
-                <img src="img/instagram.png" alt="Instagram" class="w-8 h-8 hover:opacity-70 transition">
-              </a>
-              <a href="https://twitter.com" target="_blank">
-                <img src="img/x.png" alt="Twitter" class="w-8 h-8 hover:opacity-70 transition">
-              </a>
-              <a href="https://tiktok.com" target="_blank">
-                <img src="img/tiktok.png" alt="Sitio Web" class="w-8 h-8 hover:opacity-70 transition">
-              </a>
+              <a href="https://facebook.com" target="_blank"><img src="img/fb.png" alt="Facebook"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://instagram.com" target="_blank"><img src="img/instagram.png" alt="Instagram"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://twitter.com" target="_blank"><img src="img/x.png" alt="Twitter"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://tiktok.com" target="_blank"><img src="img/tiktok.png" alt="TikTok"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
             </div>
-
           </div>
-
           <!-- Mapa -->
-          <div class="w-full h-52 md:h-40">
+          <div class="w-full h-56 md:h-48">
             <iframe class="w-full h-full rounded-lg border-0 shadow-md"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.864616222403!2d-77.04279308464942!3d-12.046374991464819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b54bfbf3e1%3A0x9b63e7fcd3d2f7c0!2sLima%2C%20Per%C3%BA!5e0!3m2!1ses!2spe!4v1708554030000!5m2!1ses!2spe"
               allowfullscreen="" loading="lazy"></iframe>
@@ -263,11 +264,9 @@ Ubicación: previseguros-web/index.html
         </div>
       </div>
     </div>
-
     <!-- Copyright -->
-    <div class="bg-gray-800 text-gray-400 text-center py-4 text-sm">
-      &copy; 2025 PREVISEGUROS. Todos los derechos reservados.
-    </div>
+    <div class="bg-gray-800 text-gray-400 text-center py-4 text-sm">&copy; 2025 PREVISEGUROS. Todos los derechos
+      reservados.</div>
   </footer>
 
 
