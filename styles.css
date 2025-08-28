@@ -4,7 +4,7 @@
 }
 
 .socios h2 {
-  color: orange;
+  color: #FF6600;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -13,12 +13,6 @@
   display: flex;
   width: max-content;
   animation: scroll 20s linear infinite;
-}
-
-.socios-track img {
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .socios-track img:hover {
