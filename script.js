@@ -43,7 +43,8 @@
 })();
 
 
-// ======= Seguros (tabs + render) en seguros.html =======
+// ======= Seguros (tabs + render) en seguros.html ====================================================
+
 (function initSeguros() {
   const lista = document.getElementById('lista-seguros');
   if (!lista) return;
@@ -52,8 +53,106 @@
   const tabEmpresas = document.getElementById('tab-empresas');
   const tabPersonas = document.getElementById('tab-personas');
 
-  const PERSONAS = ["Vida", "Salud", "Oncológico", "Vehículos", "SOAT", "EPS Individual", "Accidentes Personales", "Domiciliarios", "Viaje"];
-  const EMPRESAS = ["SCTR", "Vida Ley", "Multirriesgo", "Responsabilidad Civil", "3D", "Transporte", "CAR", "EAR", "Vehicular Flotas", "TREC"];
+  const PERSONAS = [
+    {
+      titulo: "Vida",
+      descripcion: "Brinda tranquilidad a tu familia asegurando su estabilidad económica en caso de fallecimiento.",
+      img: "img/vida.jpg"
+    },
+    {
+      titulo: "Salud",
+      descripcion: "Accede a atención médica en clínicas y hospitales de primer nivel sin preocuparte por los costos.",
+      img: "img/salud.jpg"
+    },
+    {
+      titulo: "Oncológico",
+      descripcion: "Cobertura especializada para el tratamiento integral contra el cáncer.",
+      img: "img/onco.jpg"
+    },
+    {
+      titulo: "Vehículos",
+      descripcion: "Protege tu auto contra accidentes, robos y daños a terceros con planes flexibles.",
+      img: "img/vehiculos.jpg"
+    },
+    {
+      titulo: "SOAT",
+      descripcion: "Seguro obligatorio que cubre gastos médicos y compensaciones por accidentes de tránsito.",
+      img: "img/soat.jpg"
+    },
+    {
+      titulo: "EPS Individual",
+      descripcion: "Accede a programas de salud preventiva, consultas y emergencias con amplia cobertura.",
+      img: "img/eps.jpg"
+    },
+    {
+      titulo: "Accidentes Personales",
+      descripcion: "Protección inmediata ante accidentes inesperados, invalidez o fallecimiento.",
+      img: "img/accidentes.jpg"
+    },
+    {
+      titulo: "Domiciliarios",
+      descripcion: "Cubre tu vivienda y pertenencias frente a robos, incendios y daños inesperados.",
+      img: "img/domiciliario.jpg"
+    },
+    {
+      titulo: "Viaje",
+      descripcion: "Viaja con seguridad con cobertura médica internacional y asistencia en emergencias.",
+      img: "img/viaje.jpg"
+    }
+  ];
+
+  const EMPRESAS = [
+    {
+      titulo: "SCTR",
+      descripcion: "Seguro Complementario de Trabajo de Riesgo para proteger a tus trabajadores en actividades de alto riesgo.",
+      img: "img/sctr.jpg"
+    },
+    {
+      titulo: "Vida Ley",
+      descripcion: "Seguro obligatorio que brinda respaldo a los empleados en caso de fallecimiento o invalidez.",
+      img: "img/vidaley.jpg"
+    },
+    {
+      titulo: "Multirriesgo",
+      descripcion: "Protección integral contra incendios, robos, terremotos y otros riesgos que afecten tu empresa.",
+      img: "img/multiriesgo.jpg"
+    },
+    {
+      titulo: "Responsabilidad Civil",
+      descripcion: "Cubre indemnizaciones por daños o perjuicios causados a terceros en el desarrollo de tu negocio.",
+      img: "img/responsabilidad.jpg"
+    },
+    {
+      titulo: "3D",
+      descripcion: "Protección frente a delitos financieros: fraude, desfalco y falsificación documental.",
+      img: "img/3d.jpg"
+    },
+    {
+      titulo: "Transporte",
+      descripcion: "Cubre tus mercancías durante su traslado terrestre, aéreo o marítimo frente a accidentes o pérdidas.",
+      img: "img/transporte.jpg"
+    },
+    {
+      titulo: "CAR",
+      descripcion: "Seguro de todo riesgo para contratistas en proyectos de construcción y montaje.",
+      img: "img/car.jpg"
+    },
+    {
+      titulo: "EAR",
+      descripcion: "Seguro especializado para riesgos de montaje y obras de ingeniería.",
+      img: "img/ear.jpg"
+    },
+    {
+      titulo: "Vehicular Flotas",
+      descripcion: "Protección integral para la flota vehicular de tu empresa frente a accidentes y robos.",
+      img: "img/flotas.jpg"
+    },
+    {
+      titulo: "TREC",
+      descripcion: "Seguro de todo riesgo para equipos de contratistas contra daños materiales accidentales.",
+      img: "img/trec.jpg"
+    }
+  ];
 
   /*function card(nombre){
     return `
@@ -66,36 +165,38 @@
       </div>
     `;
   }*/
-  function card(nombre) {
-    const slug = nombre.toLowerCase().replace(/\s+/g, '-'); // "Vida Ley" -> "vida-ley"
+  function card(seguro) {
+    const slug = seguro.titulo.toLowerCase().replace(/\s+/g, '-');
     return `
     <a href="detalleSeguro.html?tipo=${slug}" class="block">
       <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6">
         <div class="h-36 rounded-xl overflow-hidden mb-4 bg-gray-100">
-          <img class="w-full h-full object-cover" src="https://source.unsplash.com/600x400/?insurance,${encodeURIComponent(nombre)}" alt="${nombre}">
+          <img class="w-full h-full object-cover" src="${seguro.img}" alt="${seguro.titulo}">
         </div>
-        <h3 class="font-bold text-lg mb-2">${nombre}</h3>
-        <p class="text-gray-600 text-sm">Cobertura flexible y asesoría dedicada. Solicita tu cotización.</p>
+        <h3 class="font-bold text-lg mb-2">${seguro.titulo}</h3>
+        <p class="text-gray-600 text-sm">${seguro.descripcion}</p>
       </div>
     </a>
   `;
   }
-
 
   function render(tipo = "Empresas") {
     const data = tipo === "Personas" ? PERSONAS : EMPRESAS;
     lista.innerHTML = data.map(card).join('');
     titulo.textContent = `Seguros para ${tipo}`;
     pill.textContent = tipo;
-    pill.className = "px-3 py-1 rounded-full text-sm font-semibold " + (tipo === "Personas" ? "bg-orange-100 text-orange-700" : "bg-orange-100 text-orange-700");
+    pill.className = "px-3 py-1 rounded-full text-sm font-semibold " +
+      (tipo === "Personas" ? "bg-orange-100 text-orange-700" : "bg-orange-100 text-orange-700");
   }
+
 
   tabEmpresas?.addEventListener('click', () => render("Empresas"));
   tabPersonas?.addEventListener('click', () => render("Personas"));
 
   render("Empresas"); // inicio por defecto
 
-  // Formulario (demo)
+
+  // Formulario (demo)==========================================================
   const form = document.getElementById('form-cotizar');
   const status = document.getElementById('form-status');
   form?.addEventListener('submit', (e) => {
