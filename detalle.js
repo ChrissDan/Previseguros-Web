@@ -147,5 +147,6 @@ function renderDetalle() {
   `;
 }
 
-document.addEventListener("DOMContentLoaded", renderDetalle);
+
+document.addEventListener("DOMContentLoaded",renderDetalle());
 
