@@ -89,107 +89,107 @@ Ubicación: previseguros-web/seguros.html
       </div>
     </section>
 
-    <section class="bg-white border-y">
-      <div class="container mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center">
+    <section class="relative bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center"
+      style="background-image: url('https://images.pexels.com/photos/1906440/pexels-photo-1906440.jpeg');">
 
-        <!-- Imagen izquierda -->
-        <div class="hidden md:flex justify-center">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1661434914660-c68d9fd54753?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Seguro de Vehículos" class="rounded-xl mb-4 h-96 w-full object-cover">
-        </div>
+      <!-- Capa oscura para contraste -->
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
 
-        <!-- Formulario estilo VIP -->
-        <div class="space-y-6 text-gray-800">
-          <h3 class="text-3xl md:text-4xl font-extrabold text-center">Cotiza tu Seguro</h3>
-          <p class="text-gray-600">Completa los datos y uno de nuestros asesores te contactará.</p>
+      <!-- Formulario centrado -->
+      <div
+        class="relative z-10 bg-white border border-gray-300 rounded-2xl shadow-xl p-6 space-y-5 max-w-lg w-full mx-4">
+        <h3 class="text-2xl md:text-3xl font-extrabold text-center text-gray-900">Cotiza tu Seguro</h3>
+        <p class="text-gray-600 text-center text-sm">Completa los datos y uno de nuestros asesores te contactará.</p>
 
-          <form id="form-cotizar" class="space-y-4">
+        <form id="form-cotizar" class="space-y-3">
+          <div>
+            <label class="block text-sm font-medium">Nombre y Apellidos</label>
+            <input type="text" id="nombre" name="nombre"
+              class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+              required>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="block text-sm font-medium">DNI</label>
+              <input type="text" id="dni" name="dni"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+            </div>
+            <div class="flex-1">
+              <label class="block text-sm font-medium">Número de Celular</label>
+              <input type="tel" id="celular" name="celular"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo"
+              class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+              required>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="block text-sm font-medium">Tipo de Seguro</label>
+              <select id="categoria" name="categoria"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+                <option value="">Seleccione un tipo de seguro</option>
+                <option value="Personas">Personas</option>
+                <option value="Empresas">Empresas</option>
+              </select>
+            </div>
+            <div class="flex-1">
+              <label class="block text-sm font-medium">Seguros</label>
+              <select id="seguros" name="seguros"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+                <option value="">Seleccione un seguro</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Campos adicionales SOLO si se elige "Salud" -->
+          <div id="campos-salud" class="hidden space-y-3">
             <div>
-              <label class="block text-sm font-medium">Nombre y Apellidos</label>
-              <input type="text" id="nombre" name="nombre" placeholder=" "
-                class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400" required>
-            </div>
-
-            <div class="flex gap-4">
-              <div class="flex-1">
-                <label class="block text-sm font-medium">DNI</label>
-                <input type="text" id="dni" name="dni" placeholder=" "
-                  class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400" required>
-              </div>
-              <div class="flex-1">
-                <label class="block text-sm font-medium">Numero de Celular</label>
-                <input type="tel" id="celular" name="celular" placeholder=" "
-                  class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400" required>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium">Correo Electrónico</label>
-              <input type="email" id="correo" name="correo" placeholder=" "
-                class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400" required>
-            </div>
-
-            <div class="flex gap-4">
-              <div class="flex-1">
-                <label class="block text-sm font-medium">Tipo de Seguro</label>
-                <select id="categoria" name="categoria" required
-                  class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400">
-                  <option value="">Seleccione un tipo de seguro</option>
-                  <option value="Personas">Personas</option>
-                  <option value="Empresas">Empresas</option>
-                </select>
-              </div>
-              <div class="flex-1">
-                <label class="block text-sm font-medium">Seguros</label>
-                <select id="seguros" name="seguros" required
-                  class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400">
-                  <option value="">Seleccione un seguro</option>
-                </select>
-              </div>
-            </div>
-
-
-            <!-- Campos adicionales SOLO si se elige "Salud" -->
-            <div id="campos-salud" class="hidden space-y-4">
-              <div>
-                <label class="block text-sm font-medium">Fecha de Nacimiento del Titular</label>
-                <input type="date" id="fechaTitular" name="fechaTitular"
-                  class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-orange-400">
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium">¿Incluir dependientes?</label>
-                <select id="incluirDependientes" name="incluirDependientes"
-                  class="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-orange-400">
-                  <option value="">Seleccione</option>
-                  <option value="no">No</option>
-                  <option value="si">Sí</option>
-                </select>
-              </div>
-
-              <!-- Contenedor dinámico de dependientes -->
-              <div id="dependientes-container" class="space-y-4 hidden"></div>
+              <label class="block text-sm font-medium">Fecha de Nacimiento del Titular</label>
+              <input type="date" id="fechaTitular" name="fechaTitular"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
             </div>
 
             <div>
-              <textarea id="detalle" name="detalle" rows="4" placeholder="¿Qué cobertura buscas?"
-                class="border border-gray-300 rounded-lg p-4 w-full focus:ring-2 focus:ring-orange-400"></textarea>
+              <label class="block text-sm font-medium">¿Incluir dependientes?</label>
+              <select id="incluirDependientes" name="incluirDependientes"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
+                <option value="">Seleccione</option>
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+              </select>
             </div>
 
-            <div>
-              <button type="submit"
-                class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg py-4">
-                Cotizar ahora
-              </button>
-            </div>
+            <!-- Contenedor dinámico de dependientes -->
+            <div id="dependientes-container" class="space-y-3 hidden"></div>
+          </div>
 
+          <div>
+            <label class="block text-sm font-medium">Descripción</label>
+            <textarea id="detalle" name="detalle" rows="3" placeholder="Describa su solicitud"
+              class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"></textarea>
+          </div>
 
-          </form>
-        </div>
-
+          <div>
+            <button type="submit"
+              class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg py-3 text-sm">
+              Cotizar ahora
+            </button>
+          </div>
+        </form>
       </div>
     </section>
+
 
   </main>
 
