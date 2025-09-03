@@ -80,7 +80,7 @@ Ubicación: previseguros-web/seguros.html
     </section>
 
     <!-- Listado dinámico -->
-    <section class="container mx-auto px-6 py-12">
+    <section id="listado-seguros" class="container mx-auto px-6 py-12 scroll-mt-24 md:scroll-mt-28">
       <div class="mb-6 text-center">
         <h2 id="seguro-titulo" class="text-2xl md:text-3xl font-extrabold">Seguros para Empresas</h2>
       </div>
@@ -88,6 +88,7 @@ Ubicación: previseguros-web/seguros.html
         <!-- Tarjetas generadas por JS -->
       </div>
     </section>
+
 
     <section class="relative bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center"
       style="background-image: url('https://images.pexels.com/photos/1906440/pexels-photo-1906440.jpeg');">
@@ -243,105 +244,8 @@ Ubicación: previseguros-web/seguros.html
       reservados.</div>
   </footer>
 
-  <script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const categoriaSelect = document.getElementById("categoria");
-      const segurosSelect = document.getElementById("seguros");
-      const detalleTextarea = document.getElementById("detalle");
-
-      const camposSalud = document.getElementById("campos-salud");
-      const incluirDependientes = document.getElementById("incluirDependientes");
-      const dependientesContainer = document.getElementById("dependientes-container");
-
-      // Seguros
-      const segurosPersonas = ["Vida", "Salud", "Oncológico", "Vehículos", "SOAT",
-        "EPS Individual", "Accidentes Personales", "Domiciliarios", "Viaje"];
-      const segurosEmpresas = ["SCTR", "Vida Ley", "Multirriesgo", "Responsabilidad Civil",
-        "3D", "Transporte", "CAR", "EAR", "Vehicular Flotas", "TREC"];
-
-      // Llenar segundo combo según categoría
-      categoriaSelect.addEventListener("change", function () {
-        segurosSelect.innerHTML = '<option value="">Seleccione un seguro</option>';
-        let datosSeguros = this.value === "Personas" ? segurosPersonas : (this.value === "Empresas" ? segurosEmpresas : []);
-        datosSeguros.forEach(seguro => {
-          const option = document.createElement("option");
-          option.value = seguro;
-          option.textContent = seguro;
-          segurosSelect.appendChild(option);
-        });
-        detalleTextarea.value = "";
-        camposSalud.classList.add("hidden");
-      });
-
-      // Mostrar campos adicionales si se elige "Salud"
-      segurosSelect.addEventListener("change", function () {
-        if (this.value === "Salud") {
-          camposSalud.classList.remove("hidden");
-        } else {
-          camposSalud.classList.add("hidden");
-          dependientesContainer.innerHTML = "";
-        }
-      });
-
-      // Mostrar dependientes si se selecciona "Sí"
-      incluirDependientes.addEventListener("change", function () {
-        dependientesContainer.innerHTML = "";
-        if (this.value === "si") {
-          dependientesContainer.classList.remove("hidden");
-          agregarDependiente();
-        } else {
-          dependientesContainer.classList.add("hidden");
-        }
-      });
-
-      // Función para agregar dependiente
-      function agregarDependiente() {
-        const dependienteDiv = document.createElement("div");
-        dependienteDiv.classList.add("flex", "gap-2", "items-center");
-
-        dependienteDiv.innerHTML = `
-        <select name="parentesco[]" class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
-          <option value="">Parentesco</option>
-          <option value="hijo">Hijo</option>
-          <option value="conyuge">Cónyuge</option>
-        </select>
-        <input type="date" name="fechaDependiente[]" class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
-
-        <button type="button" class="borrar p-2 rounded flex items-center justify-center text-black hover:text-red-500">
-          <i data-lucide="trash-2"></i>
-        </button>
-
-        <button type="button" class="agregar p-2 rounded flex items-center justify-center text-black hover:text-green-500">
-          <i data-lucide="plus-circle"></i>
-        </button>
-      `;
-
-        dependientesContainer.appendChild(dependienteDiv);
-
-        // Botón borrar
-        dependienteDiv.querySelector(".borrar").addEventListener("click", function () {
-          dependienteDiv.remove();
-          lucide.createIcons(); // refrescar íconos
-        });
-
-        // Botón agregar
-        dependienteDiv.querySelector(".agregar").addEventListener("click", function () {
-          agregarDependiente();
-          lucide.createIcons(); // refrescar íconos
-        });
-
-        // Activar íconos la primera vez
-        lucide.createIcons();
-      }
-
-    });
-
-  </script>
-
-
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
