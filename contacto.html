@@ -5,6 +5,7 @@ Ubicación: previseguros-web/contacto.html
 =========================== -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,19 +14,21 @@ Ubicación: previseguros-web/contacto.html
   <link rel="icon" href="assets/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
   <!-- Header -->
   <header class="bg-white shadow-md fixed w-full z-50">
     <nav class="container mx-auto flex justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-extrabold tracking-tight">
-        <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span>
+        <!-- <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span> -->
+        <img src="img/logos/logo1.jpg" alt="Logo de la empresa" class="w-48 h-auto">
       </a>
       <ul class="hidden md:flex items-center gap-6 font-medium">
-        <li><a href="index.html" class="hover:text-orange-500">Inicio</a></li>
-        <li><a href="seguros.html" class="hover:text-orange-500">Seguros</a></li>
-        <li><a href="nosotros.html" class="hover:text-orange-500">Nosotros</a></li>
-        <li><a href="contacto.html" class="text-orange-500 font-semibold">Contacto</a></li>
-        <li><a href="faq.html" class="hover:text-orange-500">Preguntas Frecuentes</a></li>
+        <li><a href="index.html" class="hover:text-[#FF6600]">Inicio</a></li>
+        <li><a href="seguros.html" class="hover:text-[#FF6600]">Seguros</a></li>
+        <li><a href="nosotros.html" class="hover:text-[#FF6600]">Nosotros</a></li>
+        <li><a href="contacto.html" class="font-semibold" style="color:#FF6600;">Contacto</a></li>
+        <li><a href="faq.html" class="hover:text-[#FF6600]">Preguntas Frecuentes</a></li>
       </ul>
       <button id="menu-btn" class="md:hidden text-2xl" aria-label="Abrir menú">☰</button>
     </nav>
@@ -49,18 +52,20 @@ Ubicación: previseguros-web/contacto.html
           <h2 class="font-bold text-xl mb-3">Información</h2>
           <p class="text-gray-600">Estamos para ayudarte a elegir el mejor seguro.</p>
           <ul class="mt-4 space-y-2 text-gray-700">
-            <li>📍 Av. Ejemplo 123, Lima</li>
-            <li>📞 +51 999 888 777</li>
-            <li>📧 contacto@previseguros.com</li>
+            <li>📍 Av. Ejercito 101 - Edificio NASYA - OF 306, Arequipa, Perú</li>
+            <li>📞 +51 958325773</li>
+            <li>✉️ informes@previseguros.com.pe</li>
             <li>🕒 Lun–Vie: 9:00–18:00</li>
           </ul>
         </div>
         <!-- Mapa -->
         <div class="overflow-hidden rounded-2xl shadow h-80">
-          <iframe class="w-full h-full" title="Mapa"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.6264!2d-77.0428!3d-12.0464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b0c8f4a8a9%3A0x0!2sLima%2C%20Per%C3%BA!5e0!3m2!1ses!2spe!4v1700000000000"
-            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+            <iframe class="w-full h-full rounded-lg border-0 shadow-md"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.9648536505497!2d-71.5410121!3d-16.3921355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a44c6e84a8b%3A0x505ab564ab9a92dd!2sPreviseguros%20Asesores%20y%20Corredores%20de%20Seguros!5e1!3m2!1ses-419!2spe!4v1756404685433!5m2!1ses-419!2spe"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
       </div>
 
       <!-- Formulario de contacto -->
@@ -70,8 +75,10 @@ Ubicación: previseguros-web/contacto.html
           <input required class="border rounded-lg p-3" type="text" name="nombre" placeholder="Nombre y Apellidos">
           <input required class="border rounded-lg p-3" type="email" name="correo" placeholder="Correo electrónico">
           <input class="border rounded-lg p-3 md:col-span-2" type="tel" name="telefono" placeholder="Celular">
-          <textarea required class="border rounded-lg p-3 md:col-span-2" name="mensaje" rows="4" placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
-          <button class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-3 font-semibold md:col-span-2">Enviar</button>
+          <textarea required class="border rounded-lg p-3 md:col-span-2" name="mensaje" rows="4"
+            placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
+          <button
+            class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-3 font-semibold md:col-span-2">Enviar</button>
         </form>
         <p id="contacto-status" class="text-green-600 text-sm mt-3 hidden">¡Gracias! Te responderemos pronto.</p>
       </div>
@@ -79,10 +86,56 @@ Ubicación: previseguros-web/contacto.html
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-200 text-center p-6">
-    <p>&copy; 2025 PREVISEGUROS. Todos los derechos reservados.</p>
+  <footer class="bg-gray-900 text-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-center md:text-left">
+      <!-- Logo y descripción -->
+      <div>
+        <!--<h3 class="text-2xl font-bold mb-3"><span class="text-[#FF6600]">PREVISEGUROS</span></h3>-->
+        <img src="img/logos/logo3.png" alt="Logo de la empresa" class="w-48 h-auto">
+        <br <p class="text-gray-400 text-sm">Más de 20 años protegiendo familias y empresas en todo el Perú. Confianza,
+        respaldo y asesoría personalizada.</p>
+      </div>
+
+      <!-- Contacto + Mapa -->
+      <div class="md:col-span-2">
+        <h4 class="text-lg font-semibold mb-3 text-center md:text-left">Contacto</h4>
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <!-- Datos + Redes -->
+          <div class="space-y-3 text-sm">
+            <ul class="space-y-2">
+              <li>📍 Av. Ejercito 101 - Edificio NASYA - OF 306, Arequipa, Perú</li>
+              <li>📞 +51 958325773</li>
+              <li>✉️ informes@previseguros.com.pe</li>
+            </ul>
+            <!-- Redes sociales -->
+            <div class="flex justify-center md:justify-start gap-4 pt-2">
+              <a href="https://facebook.com" target="_blank"><img src="img/logos/fb.png" alt="Facebook"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://instagram.com" target="_blank"><img src="img/logos/instagram.png" alt="Instagram"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://twitter.com" target="_blank"><img src="img/logos/x.png" alt="Twitter"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://tiktok.com" target="_blank"><img src="img/logos/tiktok.png" alt="TikTok"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+            </div>
+          </div>
+          <!-- Mapa -->
+          <div class="w-full h-56 md:h-48">
+            <iframe class="w-full h-full rounded-lg border-0 shadow-md"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.9648536505497!2d-71.5410121!3d-16.3921355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a44c6e84a8b%3A0x505ab564ab9a92dd!2sPreviseguros%20Asesores%20y%20Corredores%20de%20Seguros!5e1!3m2!1ses-419!2spe!4v1756404685433!5m2!1ses-419!2spe"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="bg-gray-800 text-gray-400 text-center py-4 text-sm">&copy; 2025 PREVISEGUROS. Todos los derechos
+      reservados.</div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PREVISEGUROS | Detalle Seguro</title>
-  <link rel="icon" type="image/png" href="img/logo4.ico">
+  <link rel="icon" type="image/png" href="img/logos/logo4.ico">
   <link rel="icon" href="assets/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -15,7 +15,7 @@
   <header class="bg-white shadow-md fixed w-full z-50">
     <nav class="container mx-auto flex justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-extrabold tracking-tight">
-        <img src="img/logo1.jpg" alt="Logo de la empresa" class="w-48 h-auto">
+        <img src="img/logos/logo1.jpg" alt="Logo de la empresa" class="w-48 h-auto">
       </a>
       <ul class="hidden md:flex items-center gap-6 font-medium">
         <li><a href="index.html" class="hover:text-[#FF6600]">Inicio</a></li>
@@ -45,60 +45,155 @@
       </div>
     </section>
 
-    <!-- Formulario de contacto -->
-    <section class="bg-white border-y">
-      <div class="container mx-auto px-6 py-12">
-        <h3 class="text-2xl font-bold mb-4">Solicita información</h3>
-        <p class="text-gray-600 mb-6">Déjanos tus datos y un asesor te contactará.</p>
-        <form id="form-cotizar" class="grid md:grid-cols-3 gap-4">
-          <input required type="text" name="nombre" placeholder="Nombre y Apellidos"
-            class="border rounded-lg p-3 w-full">
-          <input required type="tel" name="celular" placeholder="Celular" class="border rounded-lg p-3 w-full">
-          <input required type="email" name="correo" placeholder="Correo electrónico"
-            class="border rounded-lg p-3 w-full md:col-span-1">
-          <textarea name="detalle" placeholder="¿Qué cobertura buscas?"
-            class="border rounded-lg p-3 w-full md:col-span-3" rows="3"></textarea>
-          <button
-            class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg p-3 font-semibold md:col-span-3">Enviar</button>
+    <section class="relative bg-cover bg-center bg-no-repeat min-h-screen flex items-center justify-center"
+      style="background-image: url('https://images.pexels.com/photos/1906440/pexels-photo-1906440.jpeg');">
+
+      <!-- Capa oscura para contraste -->
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+      <!-- Formulario centrado -->
+      <div
+        class="relative z-10 bg-white border border-gray-300 rounded-2xl shadow-xl p-6 space-y-5 max-w-lg w-full mx-4">
+        <h3 class="text-2xl md:text-3xl font-extrabold text-center text-gray-900">Cotiza tu Seguro</h3>
+        <p class="text-gray-600 text-center text-sm">Completa los datos y uno de nuestros asesores te contactará.</p>
+
+        <form id="form-cotizar" class="space-y-3">
+          <div>
+            <label class="block text-sm font-medium">Nombre y Apellidos</label>
+            <input type="text" id="nombre" name="nombre"
+              class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+              required>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="block text-sm font-medium">DNI</label>
+              <input type="text" id="dni" name="dni"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+            </div>
+            <div class="flex-1">
+              <label class="block text-sm font-medium">Número de Celular</label>
+              <input type="tel" id="celular" name="celular"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo"
+              class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+              required>
+          </div>
+
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="block text-sm font-medium">Tipo de Seguro</label>
+              <select id="categoria" name="categoria"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+                <option value="">Seleccione un tipo de seguro</option>
+                <option value="Personas">Personas</option>
+                <option value="Empresas">Empresas</option>
+              </select>
+            </div>
+            <div class="flex-1">
+              <label class="block text-sm font-medium">Seguros</label>
+              <select id="seguros" name="seguros"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"
+                required>
+                <option value="">Seleccione un seguro</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Campos adicionales SOLO si se elige "Salud" -->
+          <div id="campos-salud" class="hidden space-y-3">
+            <div>
+              <label class="block text-sm font-medium">Fecha de Nacimiento del Titular</label>
+              <input type="date" id="fechaTitular" name="fechaTitular"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium">¿Incluir dependientes?</label>
+              <select id="incluirDependientes" name="incluirDependientes"
+                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
+                <option value="">Seleccione</option>
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+              </select>
+            </div>
+
+            <!-- Contenedor dinámico de dependientes -->
+            <div id="dependientes-container" class="space-y-3 hidden"></div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium">Descripción</label>
+            <textarea id="detalle" name="detalle" rows="3" placeholder="Describa su solicitud"
+              class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400"></textarea>
+          </div>
+
+          <div>
+            <button type="submit"
+              class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg py-3 text-sm">
+              Cotizar ahora
+            </button>
+          </div>
         </form>
-        <p id="form-status" class="text-sm text-green-600 mt-3 hidden">¡Gracias! Hemos recibido tu solicitud.</p>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-200">
     <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-center md:text-left">
+      <!-- Logo y descripción -->
       <div>
-        <img src="img/logo3.png" alt="Logo de la empresa" class="w-48 h-auto">
-        <p class="text-gray-400 text-sm mt-2">Más de 20 años protegiendo familias y empresas en todo el Perú.</p>
+        <!--<h3 class="text-2xl font-bold mb-3"><span class="text-[#FF6600]">PREVISEGUROS</span></h3>-->
+        <img src="img/logos/logo3.png" alt="Logo de la empresa" class="w-48 h-auto">
+        <br <p class="text-gray-400 text-sm">Más de 20 años protegiendo familias y empresas en todo el Perú. Confianza,
+        respaldo y asesoría personalizada.</p>
       </div>
+
+      <!-- Contacto + Mapa -->
       <div class="md:col-span-2">
         <h4 class="text-lg font-semibold mb-3 text-center md:text-left">Contacto</h4>
         <div class="grid md:grid-cols-2 gap-6 items-center">
+          <!-- Datos + Redes -->
           <div class="space-y-3 text-sm">
             <ul class="space-y-2">
-              <li>📍 Av. Principal 123, Lima, Perú</li>
-              <li>📞 +51 987 654 321</li>
-              <li>✉️ contacto@previseguros.com</li>
+              <li>📍 Av. Ejercito 101 - Edificio NASYA - OF 306, Arequipa, Perú</li>
+              <li>📞 +51 958325773</li>
+              <li>✉️ informes@previseguros.com.pe</li>
             </ul>
+            <!-- Redes sociales -->
             <div class="flex justify-center md:justify-start gap-4 pt-2">
-              <a href="https://facebook.com" target="_blank"><img src="img/fb.png" class="w-8 h-8"></a>
-              <a href="https://instagram.com" target="_blank"><img src="img/instagram.png" class="w-8 h-8"></a>
-              <a href="https://twitter.com" target="_blank"><img src="img/x.png" class="w-8 h-8"></a>
-              <a href="https://tiktok.com" target="_blank"><img src="img/tiktok.png" class="w-8 h-8"></a>
+              <a href="https://facebook.com" target="_blank"><img src="img/logos/fb.png" alt="Facebook"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://instagram.com" target="_blank"><img src="img/logos/instagram.png" alt="Instagram"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://twitter.com" target="_blank"><img src="img/logos/x.png" alt="Twitter"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
+              <a href="https://tiktok.com" target="_blank"><img src="img/logos/tiktok.png" alt="TikTok"
+                  class="w-8 h-8 hover:opacity-70 transition"></a>
             </div>
           </div>
           <!-- Mapa -->
           <div class="w-full h-56 md:h-48">
             <iframe class="w-full h-full rounded-lg border-0 shadow-md"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.9648536505497!2d-71.5410121!3d-16.3921355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a44c6e84a8b%3A0x505ab564ab9a92dd!2sPreviseguros%20Asesores%20y%20Corredores%20de%20Seguros!5e1!3m2!1ses-419!2spe!4v1756404685433!5m2!1ses-419!2spe" 
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.9648536505497!2d-71.5410121!3d-16.3921355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a44c6e84a8b%3A0x505ab564ab9a92dd!2sPreviseguros%20Asesores%20y%20Corredores%20de%20Seguros!5e1!3m2!1ses-419!2spe!4v1756404685433!5m2!1ses-419!2spe"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
             </iframe>
           </div>
         </div>
       </div>
     </div>
+    <!-- Copyright -->
     <div class="bg-gray-800 text-gray-400 text-center py-4 text-sm">&copy; 2025 PREVISEGUROS. Todos los derechos
       reservados.</div>
   </footer>
@@ -107,4 +202,5 @@
   <script src="data.js"></script>
   <script src="detalle.js"></script>
 </body>
+
 </html>
