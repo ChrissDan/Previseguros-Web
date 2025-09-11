@@ -23,7 +23,7 @@ Ubicación: previseguros-web/seguros.html
     <nav class="container mx-auto flex justify-between items-center p-4">
       <a href="index.html" class="text-2xl font-extrabold tracking-tight">
         <!-- <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span> -->
-        <img src="img/logos/logo1.jpg" alt="Logo de la empresa" class="w-48 h-auto">
+        <img src="img/logos/logo4.png" alt="Logo de la empresa" class="w-48 h-auto">
       </a>
       <ul class="hidden md:flex items-center gap-6 font-medium">
         <li><a href="index.html" class="hover:text-[#FF6600]">Inicio</a></li>
@@ -102,7 +102,7 @@ Ubicación: previseguros-web/seguros.html
         <h3 class="text-2xl md:text-3xl font-extrabold text-center text-gray-900">Cotiza tu Seguro</h3>
         <p class="text-gray-600 text-center text-sm">Completa los datos y uno de nuestros asesores te contactará.</p>
 
-        <form id="form-cotizar" class="space-y-3">
+        <form id="form-cotizar" class="space-y-3" action="procesar_formulario.php" method="POST">
           <div>
             <label class="block text-sm font-medium">Nombre y Apellidos</label>
             <input type="text" id="nombre" name="nombre"
@@ -155,10 +155,21 @@ Ubicación: previseguros-web/seguros.html
 
           <!-- Campos adicionales SOLO si se elige "Salud" -->
           <div id="campos-salud" class="hidden space-y-3">
-            <div>
-              <label class="block text-sm font-medium">Fecha de Nacimiento del Titular</label>
-              <input type="date" id="fechaTitular" name="fechaTitular"
-                class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
+            <div class="flex gap-3">
+              <div class="flex-1">
+                <label class="block text-sm font-medium">Fecha de Nacimiento del Titular</label>
+                <input type="date" id="fechaTitular" name="fechaTitular"
+                  class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
+              </div>
+              <div class="flex-1">
+                <label class="block text-sm font-medium">Sexo del Titular</label>
+                <select id="sexoTitular" name="sexoTitular"
+                  class="border border-gray-300 rounded-lg p-2.5 w-full text-sm focus:ring-2 focus:ring-orange-400">
+                  <option value="">Seleccione</option>
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                </select>
+              </div>
             </div>
 
             <div>
@@ -212,7 +223,7 @@ Ubicación: previseguros-web/seguros.html
           <!-- Datos + Redes -->
           <div class="space-y-3 text-sm">
             <ul class="space-y-2">
-              <li>📍 Av. Ejercito 101 - Edificio NASYA - OF  306, Arequipa, Perú</li>
+              <li>📍 Av. Ejercito 101 - Edificio NASYA - OF 306, Arequipa, Perú</li>
               <li>📞 +51 958325773</li>
               <li>✉️ informes@previseguros.com.pe</li>
             </ul>

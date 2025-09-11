@@ -256,21 +256,47 @@
 
         function agregarDependiente() {
             const div = document.createElement('div');
-            div.className = 'flex gap-2 items-center';
+            div.className = 'grid grid-cols-1 sm:grid-cols-4 gap-2 items-center';
+
             div.innerHTML = `
-        <select name="parentesco[]" class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
-          <option value="">Parentesco</option>
-          <option value="hijo">Hijo</option>
-          <option value="conyuge">Cónyuge</option>
-        </select>
-        <input type="date" name="fechaDependiente[]" class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
-        <button type="button" class="borrar p-2 rounded flex items-center justify-center text-black hover:text-red-500">
-          <i data-lucide="trash-2"></i>
-        </button>
-        <button type="button" class="agregar p-2 rounded flex items-center justify-center text-black hover:text-green-500">
-          <i data-lucide="plus-circle"></i>
-        </button>
-      `;
+    <div class="flex gap-2 items-center">
+  <!-- Parentesco -->
+  <select name="parentesco[]" 
+    class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
+    <option value="">Parentesco</option>
+    <option value="hijo">Hijo</option>
+    <option value="conyuge">Cónyuge</option>
+  </select>
+
+  <!-- Fecha -->
+  <input type="date" name="fechaDependiente[]" 
+    class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
+
+  <!-- Sexo -->
+  <select name="sexoDependiente[]" 
+    class="border border-gray-300 rounded-lg p-2 flex-1 focus:ring-2 focus:ring-orange-400">
+    <option value="">Sexo</option>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+  </select>
+
+  <!-- Botones -->
+  <div class="flex gap-1 flex-none">
+    <button type="button" 
+      class="borrar p-2 rounded flex items-center justify-center text-black hover:text-red-500" 
+      title="Eliminar">
+      <i data-lucide="trash-2"></i>
+    </button>
+    <button type="button" 
+      class="agregar p-2 rounded flex items-center justify-center text-black hover:text-green-500" 
+      title="Agregar otro">
+      <i data-lucide="plus-circle"></i>
+    </button>
+  </div>
+</div>
+
+  `;
+
             dependientesContainer.appendChild(div);
 
             const borrarBtn = div.querySelector('.borrar');
@@ -280,6 +306,7 @@
                 div.remove();
                 if (window.lucide) window.lucide.createIcons();
             });
+
             agregarBtn.addEventListener('click', () => {
                 agregarDependiente();
                 if (window.lucide) window.lucide.createIcons();
@@ -287,6 +314,7 @@
 
             if (window.lucide) window.lucide.createIcons();
         }
+
     }
 
     // Detalle de seguro (detalleSeguro.html)
