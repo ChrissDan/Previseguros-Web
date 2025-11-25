@@ -1,319 +1,334 @@
-<!-- ===========================
-= = = = =  index.html  = = = =
-Página: INICIO
-Ubicación: previseguros-web/index.html
-=========================== -->
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PREVISEGUROS | Inicio</title>
+  <title>PREVISEGUROS | Tranquilidad para tu futuro</title>
   <link rel="icon" type="image/png" href="img/logos/logo4.ico">
-  <link rel="icon" href="assets/favicon.png">
+  
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
   <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="PREVISEGUROS - Venta y asesoría de seguros para Personas y Empresas.">
 </head>
 
-<body class="bg-gray-50 text-gray-800">
-  <!-- Header -->
-  <header class="bg-white shadow-md fixed w-full z-50">
+<body class="bg-gray-50 text-gray-800 font-sans selection:bg-orange-100 selection:text-orange-600">
+  
+  <header class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100">
     <nav class="container mx-auto flex justify-between items-center p-4">
-      <a href="index.html" class="text-2xl font-extrabold tracking-tight">
-        <!-- <span class="text-orange-500">PREVI</span><span class="text-gray-900">SEGUROS</span> -->
-        <img src="img/logos/logo4.png" alt="Logo de la empresa" class="w-48 h-auto">
+      <a href="index.html" class="hover:opacity-80 transition-opacity">
+        <img src="img/logos/logo4.png" alt="Previseguros" class="w-40 md:w-48 h-auto">
       </a>
-      <ul class="hidden md:flex items-center gap-6 font-medium">
-        <li><a href="index.html" class="font-semibold" style="color:#FF6600;">Inicio</a></li>
-        <li><a href="seguros.html" class="hover:text-[#FF6600]">Seguros</a></li>
-        <li><a href="nosotros.html" class="hover:text-[#FF6600]">Nosotros</a></li>
-        <li><a href="contacto.html" class="hover:text-[#FF6600]">Contacto</a></li>
-        <li><a href="faq.html" class="hover:text-[#FF6600]">Preguntas Frecuentes</a></li>
+      
+      <ul class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-600">
+        <li><a href="index.html" class="text-[#FF6600] font-bold">Inicio</a></li>
+        <li><a href="seguros.html" class="hover:text-[#FF6600] transition-colors">Seguros</a></li>
+        <li><a href="nosotros.html" class="hover:text-[#FF6600] transition-colors">Nosotros</a></li>
+        <li><a href="contacto.html" class="hover:text-[#FF6600] transition-colors">Contacto</a></li>
+        <li><a href="faq.html" class="hover:text-[#FF6600] transition-colors">Ayuda</a></li>
+        <li>
+            <a href="contacto.html" class="bg-[#FF6600] text-white px-5 py-2.5 rounded-full hover:bg-orange-700 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                Cotizar Ahora
+            </a>
+        </li>
       </ul>
-      <button id="menu-btn" class="md:hidden text-2xl" aria-label="Abrir menú">☰</button>
+      
+      <button id="menu-btn" class="md:hidden text-2xl text-gray-700 hover:text-[#FF6600] transition">
+        <i data-lucide="menu"></i>
+      </button>
     </nav>
-    <div id="menu" class="hidden md:hidden bg-white border-t shadow">
-      <div class="container mx-auto p-4 grid gap-2">
-        <a class="py-2 hover:text-orange-500" href="index.html">Inicio</a>
-        <a class="py-2 hover:text-orange-500" href="seguros.html">Seguros</a>
-        <a class="py-2 hover:text-orange-500" href="nosotros.html">Nosotros</a>
-        <a class="py-2 hover:text-orange-500" href="contacto.html">Contacto</a>
-        <a class="py-2 hover:text-orange-500" href="faq.html">Preguntas Frecuentes</a>
+    
+    <div id="menu" class="hidden md:hidden bg-white border-t shadow-xl absolute w-full left-0 top-full">
+      <div class="flex flex-col p-6 gap-4 text-center font-medium">
+        <a href="index.html" class="text-[#FF6600]">Inicio</a>
+        <a href="seguros.html" class="text-gray-700">Seguros</a>
+        <a href="nosotros.html" class="text-gray-700">Nosotros</a>
+        <a href="contacto.html" class="text-gray-700">Contacto</a>
+        <a href="faq.html" class="text-gray-700">Preguntas Frecuentes</a>
       </div>
     </div>
   </header>
 
-  <main class="pt-24">
-    <!-- Carrusel -->
-    <section class="relative">
-      <div id="carousel" class="overflow-hidden relative h-[75vh] md:h-[90vh]">
-
-        <!-- Slides -->
+  <main class="pt-20">
+    
+    <section class="relative bg-white overflow-hidden">
+      <div id="carousel" class="relative h-[85vh] md:h-[90vh]">
+        
         <div class="carousel-track flex h-full transition-transform duration-700 ease-in-out">
 
-          <!-- Slide 1 -->
-          <div class="carousel-slide flex flex-[0_0_100%] h-[75vh] md:h-[90vh]">
-            <!-- Texto -->
-            <div
-              class="w-full md:w-1/2 flex items-center justify-center bg-[url('img/textura4.png')] bg-gray-50 bg-repeat px-4">
-              <div class="text-center text-black max-w-lg w-full">
-                <h1 class="text-3xl md:text-5xl text-black/90 font-extrabold mb-4 text-center">Protegemos lo que más
-                  valoras</h1>
-                <p class="text-black/90 md:text-lg mb-6">Soluciones de seguros para Personas y Empresas con respaldo de
-                  las mejores aseguradoras.</p>
-                <a href="seguros.html" class="inline-flex items-center justify-center w-full max-w-xs mx-auto px-5 py-2.5
-              text-sm sm:text-base rounded-lg font-semibold
-              bg-black text-[#FF6600]
-              hover:bg-[#FF6600] hover:text-black transition">Conoce
-                  más</a>
+          <div class="carousel-slide min-w-full flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-white px-8 md:px-16 relative overflow-hidden">
+              <div class="bg-grid-pattern absolute inset-0"></div>
+              <div class="relative z-10 max-w-lg text-center md:text-left" data-aos="fade-right">
+                <div class="inline-block px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    Protección Total
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                  Protegemos lo que <br><span class="text-gradient">más valoras</span>
+                </h1>
+                <p class="text-gray-500 md:text-lg mb-8 leading-relaxed font-light">
+                  Asesoría experta en seguros para ti, tu familia y tu empresa. Respaldo garantizado.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="seguros.html" class="btn-primary text-center">Ver Seguros</a>
+                    <a href="contacto.html" class="px-8 py-3 rounded-full font-semibold text-gray-600 border border-gray-200 hover:border-orange-500 hover:text-orange-500 transition text-center">Contáctanos</a>
+                </div>
               </div>
             </div>
-            <!-- Imagen -->
-            <div class="w-full md:w-1/2 h-full">
-              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop"
-                class="w-full h-full object-cover" alt="Familia protegida">
+            <div class="w-full md:w-1/2 h-full relative">
+              <img src="img/vida.webp" class="w-full h-full object-cover" alt="Familia">
+              <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-10 hidden md:block"></div>
             </div>
           </div>
 
-          <!-- Slide 2 -->
-          <div class="carousel-slide flex flex-[0_0_100%] h-[75vh] md:h-[90vh]">
-            <!-- Imagen -->
-            <div class="w-full md:w-1/2 h-full">
-              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop"
-                class="w-full h-full object-cover" alt="Seguros para empresas">
-            </div>
-            <!-- Texto -->
-            <div
-              class="w-full md:w-1/2 flex items-center justify-center bg-[url('img/textura4.png')] bg-gray-50 bg-repeat px-4">
-              <div class="text-center text-black max-w-lg w-full">
-                <h1 class="text-3xl md:text-5xl text-black/90 font-extrabold mb-4 text-center">Asesoría experta y
-                  cercana</h1>
-                <p class="text-black/90 md:text-lg mb-6">Te ayudamos a elegir la cobertura ideal según tu etapa y
-                  objetivos.</p>
-                <a href="contacto.html" class="inline-flex items-center justify-center w-full max-w-xs mx-auto px-5 py-2.5
-              text-sm sm:text-base rounded-lg font-semibold
-              bg-black text-[#FF6600]
-              hover:bg-[#FF6600] hover:text-black transition">
-                  Habla con un asesor
-                </a>
+          <div class="carousel-slide min-w-full flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-white px-8 md:px-16 relative overflow-hidden">
+              <div class="bg-grid-pattern absolute inset-0"></div>
+              <div class="relative z-10 max-w-lg text-center md:text-left">
+                <div class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    Soluciones Corporativas
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                  Tu empresa <br><span class="text-gray-400">siempre segura</span>
+                </h1>
+                <p class="text-gray-500 md:text-lg mb-8 leading-relaxed font-light">
+                  SCTR, Vida Ley y seguros patrimoniales a la medida de tu negocio.
+                </p>
+                <a href="contacto.html" class="btn-primary inline-block text-center">Hablar con Asesor</a>
               </div>
+            </div>
+            <div class="w-full md:w-1/2 h-full relative">
+              <img src="img/sctr1.webp" class="w-full h-full object-cover" alt="Empresa">
+              <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-10 hidden md:block"></div>
             </div>
           </div>
 
-          <!-- Slide 3 -->
-          <div class="carousel-slide flex flex-[0_0_100%] h-[75vh] md:h-[90vh]">
-            <!-- Texto -->
-            <div
-              class="w-full md:w-1/2 flex items-center justify-center bg-[url('img/textura4.png')] bg-gray-50 bg-repeat px-4">
-              <div class="text-center text-black max-w-lg w-full">
-                <h1 class="text-3xl md:text-5xl text-black/90 font-extrabold mb-4 text-center">Respaldo que inspira
-                  confianza</h1>
-                <p class="text-black/90 md:text-lg mb-6">Trabajamos con las principales aseguradoras del país.</p>
-                <a href="nosotros.html" class="inline-flex items-center justify-center w-full max-w-xs mx-auto px-5 py-2.5
-              text-sm sm:text-base rounded-lg font-semibold
-              bg-black text-[#FF6600]
-              hover:bg-[#FF6600] hover:text-black transition">Nuestra
-                  historia</a>
+          <div class="carousel-slide min-w-full flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-white px-8 md:px-16 relative overflow-hidden">
+              <div class="bg-grid-pattern absolute inset-0"></div>
+              <div class="relative z-10 max-w-lg text-center md:text-left">
+                <div class="inline-block px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    Confianza y Experiencia
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                  Más de 20 años <br><span class="text-gradient">contigo</span>
+                </h1>
+                <p class="text-gray-500 md:text-lg mb-8 leading-relaxed font-light">
+                  Trabajamos con las principales aseguradoras del Perú para darte lo mejor.
+                </p>
+                <a href="nosotros.html" class="btn-primary inline-block text-center">Nuestra Historia</a>
               </div>
             </div>
-            <!-- Imagen -->
-            <div class="w-full md:w-1/2 h-full">
-              <img
-                src="https://images.unsplash.com/photo-1447069387593-a5de0862481e?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                class="w-full h-full object-cover" alt="Seguros de vehículos y viaje">
+            <div class="w-full md:w-1/2 h-full relative">
+              <img src="img/transporte.webp" class="w-full h-full object-cover" alt="Trayectoria">
+              <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-10 hidden md:block"></div>
             </div>
           </div>
 
         </div>
 
-
-        <!-- Controles -->
-        <button
-          class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 grid place-items-center">‹</button>
-        <button
-          class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 grid place-items-center">›</button>
-
-        <!-- Indicadores -->
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-          <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/60"></button>
-          <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/60"></button>
-          <button class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/60"></button>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-4 z-20">
+            <button class="carousel-prev bg-white hover:bg-orange-50 text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition hover:scale-110">
+                <i data-lucide="chevron-left"></i>
+            </button>
+            <button class="carousel-next bg-white hover:bg-orange-50 text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition hover:scale-110">
+                <i data-lucide="chevron-right"></i>
+            </button>
         </div>
+        
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all hover:bg-[#FF6600]"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all hover:bg-[#FF6600]"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-gray-300 transition-all hover:bg-[#FF6600]"></button>
+        </div>
+
       </div>
     </section>
 
-    <!-- ¿Por qué elegirnos? -->
-    <section class="py-20 bg-[url('img/textura4.png')] bg-gray-50 bg-repeat">
-      <div class="flex justify-center py-8">
-        <img src="img/logos/logo4.png" alt="Logo de la empresa" class="w-100 h-auto">
-      </div>
+    <section class="py-24 relative bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">¿Por qué elegirnos?</h2>
+            <div class="w-20 h-1.5 bg-[#FF6600] mx-auto rounded-full"></div>
+            <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Tu tranquilidad es nuestra prioridad. Nos diferenciamos por el servicio.</p>
+        </div>
 
-      <div class="max-w-7xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-12">¿Por qué elegirnos?</h2>
         <div class="grid md:grid-cols-3 gap-8">
-          <!-- Tarjeta 1 -->
-          <div class="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition" data-aos="fade-up"
-            data-aos-delay="100">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1667520464141-cf9d86c1fbbd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXNlc29yaWF8ZW58MHx8MHx8fDA%3D"
-              alt="Asesoria" class="rounded-xl mb-4 h-44 w-full object-cover">
-            <h3 class="text-xl font-semibold text-gray-700 mb-4">Asesoría Personalizada</h3>
-            <p class="text-gray-600">Recibe un acompañamiento cercano para elegir la mejor opción de seguro según tus
-              necesidades.</p>
+          <div class="card-premium p-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-14 h-14 bg-orange-100 text-[#FF6600] rounded-2xl flex items-center justify-center mb-6">
+                <i data-lucide="user-check" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Asesoría Personalizada</h3>
+            <p class="text-gray-500 leading-relaxed">Analizamos tu perfil para ofrecerte solo lo que realmente necesitas, sin letras chiquitas.</p>
           </div>
-          <!-- Tarjeta 2 -->
-          <div class="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition" data-aos="fade-up"
-            data-aos-delay="200">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1726797661357-f7897f35f865?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Asesoria" class="rounded-xl mb-4 h-44 w-full object-cover">
-            <h3 class="text-xl font-semibold text-gray-700 mb-4">Procesos Ágiles</h3>
-            <p class="text-gray-600">Olvídate de los trámites engorrosos. Te ayudamos a gestionar tu seguro de manera
-              rápida y sencilla.</p>
+          
+          <div class="card-premium p-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                <i data-lucide="zap" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Gestión Ágil</h3>
+            <p class="text-gray-500 leading-relaxed">Olvídate de la burocracia. Nosotros nos encargamos de los trámites y renovaciones por ti.</p>
           </div>
-          <!-- Tarjeta 3 -->
-          <div class="bg-white shadow-lg rounded-2xl p-8 hover:shadow-2xl transition" data-aos="fade-up"
-            data-aos-delay="300">
-            <img
-              src="https://plus.unsplash.com/premium_photo-1681505195930-388c317b7a76?q=80&w=1684&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Asesoria" class="rounded-xl mb-4 h-44 w-full object-cover">
-            <h3 class="text-xl font-semibold text-gray-700 mb-4">Respaldo Real</h3>
-            <p class="text-gray-600">Con Previseguros, tienes la seguridad de contar con un equipo comprometido a
-              responder cuando más lo necesites.</p>
+          
+          <div class="card-premium p-8" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6">
+                <i data-lucide="shield-check" class="w-7 h-7"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Respaldo Real</h3>
+            <p class="text-gray-500 leading-relaxed">Te acompañamos en caso de siniestro. No estás solo cuando más lo necesitas.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Trayectoria -->
-    <section class="bg-gradient-to-br from-white-50 to-white border-y">
-      <div class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-6">Nuestra Trayectoria</h2>
-        <p class="text-center text-gray-600 max-w-3xl mx-auto">Más de 20 años asesorando a familias y empresas en todo
-          el Perú. Crecemos contigo, innovamos para ti y nos mantenemos a tu lado cuando más lo necesitas.</p>
-      </div>
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-orange-50/50 -skew-x-12 transform translate-x-20"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div data-aos="fade-right">
+                    <span class="text-[#FF6600] font-bold uppercase tracking-wider text-sm">Favoritos</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Seguros más solicitados</h2>
+                </div>
+                <a href="seguros.html" class="hidden md:flex items-center gap-2 text-[#FF6600] font-semibold hover:gap-3 transition-all">
+                    Ver todos los seguros <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <a href="seguros.html" class="card-premium group block p-4" data-aos="fade-up">
+                    <div class="h-56 rounded-2xl overflow-hidden relative mb-4">
+                        <img src="img/vida.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Vida</h3>
+                            <p class="text-sm opacity-90">Protección familiar</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="seguros.html" class="card-premium group block p-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 rounded-2xl overflow-hidden relative mb-4">
+                        <img src="img/salud.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Salud</h3>
+                            <p class="text-sm opacity-90">Bienestar integral</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="seguros.html" class="card-premium group block p-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-56 rounded-2xl overflow-hidden relative mb-4">
+                        <img src="img/vehiculos.webp" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="text-2xl font-bold">Vehículos</h3>
+                            <p class="text-sm opacity-90">Viaja seguro</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="seguros.html" class="btn-primary inline-block w-full">Ver todos los seguros</a>
+            </div>
+        </div>
     </section>
 
-    <!-- Seguros más vendidos -->
-    <section class="w-full px-6 py-16 bg-[url('img/textura4.png')] bg-gray-50 bg-repeat">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10">Seguros más vendidos</h2>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-          <img src="https://plus.unsplash.com/premium_photo-1723507291530-47c2f7aa9197?q=80&w=1170&auto=format&fit=crop"
-            alt="Seguro de Vida" class="rounded-xl mb-4 h-44 w-full object-cover">
-          <h3 class="font-bold text-xl mb-2">Vida</h3>
-          <p class="text-gray-600">Protección financiera para tu familia.</p>
+    <section class="py-20 bg-gray-900 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('img/textura4.png')]"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Nuestra Trayectoria nos Respalda</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-lg mb-10">
+                Más de 20 años asesorando a familias y empresas en todo el Perú. Crecemos contigo, innovamos para ti.
+            </p>
+            <div class="flex flex-wrap justify-center gap-12">
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#FF6600]">+20</span>
+                    <p class="text-sm text-gray-400 mt-1 uppercase tracking-widest">Años</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#FF6600]">+5k</span>
+                    <p class="text-sm text-gray-400 mt-1 uppercase tracking-widest">Clientes</p>
+                </div>
+                <div>
+                    <span class="text-4xl md:text-5xl font-bold text-[#FF6600]">+15</span>
+                    <p class="text-sm text-gray-400 mt-1 uppercase tracking-widest">Aliados</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-          <img src="https://plus.unsplash.com/premium_photo-1673953509975-576678fa6710?q=80&w=1170&auto=format&fit=crop"
-            alt="Seguro de Salud" class="rounded-xl mb-4 h-44 w-full object-cover">
-          <h3 class="font-bold text-xl mb-2">Salud</h3>
-          <p class="text-gray-600">Cobertura médica integral.</p>
-        </div>
-        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition p-6 text-center">
-          <img src="https://images.unsplash.com/photo-1713623311317-d3c43a4be4cf?q=80&w=1074&auto=format&fit=crop"
-            alt="Seguro de Vehículos" class="rounded-xl mb-4 h-44 w-full object-cover">
-          <h3 class="font-bold text-xl mb-2">Vehículos</h3>
-          <p class="text-gray-600">Tranquilidad en cada viaje.</p>
-        </div>
-      </div>
     </section>
 
-    <section class="bg-gradient-to-br from-white-50 to-white border-y">
-      <div class="container mx-auto px-6 py-16 overflow-hidden">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-8 text-[#FF6600] tracking-wide">
-          Socios Estratégicos
-        </h2>
-        <p class="text-center text-gray-600 mb-8">
-          Aseguradoras líderes que confían en nuestro trabajo.
-        </p>
-
-        <!-- Carrusel de logos -->
-        <div class="relative w-full overflow-hidden">
-          <div class="socios-track flex items-center space-x-16">
-            <img src="img/logos/mapfre1.png" alt="Mapfre" class="h-16 object-contain">
-            <img src="img/logos/pacifico.png" alt="Pacífico Seguros" class="h-16 object-contain">
-            <img src="img/logos/rimac.png" alt="Rímac Seguros" class="h-16 object-contain">
-            <img src="img/logos/positiva.png" alt="La Positiva Seguros" class="h-16 object-contain">
-            <img src="img/logos/secrex.jpg" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/sanitas.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/protecta.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/avla.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/crecer.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <!-- Duplicados para loop infinito -->
-            <img src="img/logos/mapfre1.png" alt="Mapfre" class="h-16 object-contain">
-            <img src="img/logos/pacifico.png" alt="Pacífico Seguros" class="h-16 object-contain">
-            <img src="img/logos/rimac.png" alt="Rímac Seguros" class="h-16 object-contain">
-            <img src="img/logos/positiva.png" alt="La Positiva Seguros" class="h-16 object-contain">
-            <img src="img/logos/secrex.jpg" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/sanitas.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/protecta.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/avla.png" alt="Qualitas Seguros" class="h-16 object-contain">
-            <img src="img/logos/crecer.png" alt="Qualitas Seguros" class="h-16 object-contain">
-          </div>
+    <section class="py-16 bg-white border-t border-gray-100 overflow-hidden">
+        <div class="container mx-auto px-6 mb-8 text-center">
+            <p class="text-gray-400 font-semibold uppercase tracking-widest text-sm">Trabajamos con los mejores</p>
         </div>
-      </div>
+        <div class="socios-track flex items-center">
+            <img src="img/logos/mapfre1.png" alt="Mapfre">
+            <img src="img/logos/pacifico.png" alt="Pacífico">
+            <img src="img/logos/rimac.png" alt="Rimac">
+            <img src="img/logos/positiva.png" alt="La Positiva">
+            <img src="img/logos/secrex.jpg" alt="Secrex">
+            <img src="img/logos/sanitas.png" alt="Sanitas">
+            <img src="img/logos/protecta.png" alt="Protecta">
+            <img src="img/logos/avla.png" alt="Avla">
+            <img src="img/logos/crecer.png" alt="Crecer">
+            <img src="img/logos/mapfre1.png" alt="Mapfre">
+            <img src="img/logos/pacifico.png" alt="Pacífico">
+            <img src="img/logos/rimac.png" alt="Rimac">
+            <img src="img/logos/positiva.png" alt="La Positiva">
+        </div>
     </section>
-
 
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-200">
-    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-center md:text-left">
-      <!-- Logo y descripción -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 mb-12">
       <div>
-        <!--<h3 class="text-2xl font-bold mb-3"><span class="text-[#FF6600]">PREVISEGUROS</span></h3>-->
-        <img src="img/logos/logoLargo.png" alt="Logo de la empresa" class="w-48 h-auto">
-        <br <p class="text-gray-400 text-sm">Más de 20 años protegiendo familias y empresas en todo el Perú. Confianza,
-        respaldo y asesoría personalizada.</p>
+        <img src="img/logos/logo3.png" alt="Previseguros" class="w-48 mb-6 brightness-0 invert opacity-90">
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Brindamos asesoría personalizada para que tomes las mejores decisiones. Tu tranquilidad es nuestro compromiso.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
+            <i data-lucide="map-pin" class="text-[#FF6600] w-5 h-5"></i> Contacto
+        </h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li>Av. Ejercito 101 Of. 306, Edif. Nasya I<br>Yanahuara, Arequipa</li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-[#FF6600]"></i> 958 325 773 / 958 536 377</li>
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-[#FF6600]"></i> informes@previseguros.com.pe</li>
+        </ul>
       </div>
 
-      <!-- Contacto + Mapa -->
-      <div class="md:col-span-2">
-        <h4 class="text-lg font-semibold mb-3 text-center md:text-left">Contacto</h4>
-        <div class="grid md:grid-cols-2 gap-6 items-center">
-          <!-- Datos + Redes -->
-          <div class="space-y-3 text-sm">
-            <ul class="space-y-2">
-              <li>📍 Av. Ejercito 101 - Edificio NASYA - OF 306, Arequipa, Perú</li>
-              <li>📞 +51 958325773</li>
-              <li>✉️ informes@previseguros.com.pe</li>
-            </ul>
-            <!-- Redes sociales -->
-            <div class="flex justify-center md:justify-start gap-4 pt-2">
-              <a href="https://facebook.com" target="_blank"><img src="img/logos/fb.png" alt="Facebook"
-                  class="w-8 h-8 hover:opacity-70 transition"></a>
-              <a href="https://instagram.com" target="_blank"><img src="img/logos/instagram.png" alt="Instagram"
-                  class="w-8 h-8 hover:opacity-70 transition"></a>
-              <a href="https://twitter.com" target="_blank"><img src="img/logos/x.png" alt="Twitter"
-                  class="w-8 h-8 hover:opacity-70 transition"></a>
-              <a href="https://tiktok.com" target="_blank"><img src="img/logos/tiktok.png" alt="TikTok"
-                  class="w-8 h-8 hover:opacity-70 transition"></a>
-            </div>
-          </div>
-          <!-- Mapa -->
-          <div class="w-full h-56 md:h-48">
-            <iframe class="w-full h-full rounded-lg border-0 shadow-md"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3727.9648536505497!2d-71.5410121!3d-16.3921355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a44c6e84a8b%3A0x505ab564ab9a92dd!2sPreviseguros%20Asesores%20y%20Corredores%20de%20Seguros!5e1!3m2!1ses-419!2spe!4v1756404685433!5m2!1ses-419!2spe"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
+      <div>
+        <h4 class="text-white font-bold text-lg mb-6">Síguenos</h4>
+        <div class="flex gap-4">
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400">
+            <i data-lucide="facebook" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400">
+            <i data-lucide="twitter" class="w-5 h-5"></i>
+          </a>
         </div>
       </div>
     </div>
-    <!-- Copyright -->
-    <div class="bg-gray-800 text-gray-400 text-center py-4 text-sm">&copy; 2025 PREVISEGUROS. Todos los derechos
-      reservados.</div>
+    
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+      © 2025 PREVISEGUROS. Todos los derechos reservados.
+    </div>
   </footer>
 
-
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script src="app.js"></script>
+  <script>
+    lucide.createIcons(); // Inicializar Iconos
+  </script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
