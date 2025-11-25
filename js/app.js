@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('detalle-seguro')) {
         initDetalleSeguro();
     }
-    
+
     // 5. Formularios
     const forms = document.querySelectorAll('form');
     forms.forEach(form => initFormulario(form));
@@ -49,21 +49,21 @@ function initMobileMenu() {
 function initCarousel() {
     const track = document.querySelector('.carousel-track');
     // Convertimos a Array para evitar errores de conteo
-    const slides = Array.from(track.children); 
+    const slides = Array.from(track.children);
     const nextBtn = document.querySelector('.carousel-next');
     const prevBtn = document.querySelector('.carousel-prev');
     const dots = document.querySelectorAll('.carousel-dot');
-    
+
     let index = 0;
     let interval;
 
     const updateSlide = (i) => {
         // Lógica circular
         index = (i + slides.length) % slides.length;
-        
+
         // Mover el track (funciona con tu CSS de flex)
         track.style.transform = `translateX(-${index * 100}%)`;
-        
+
         // Actualizar puntos
         dots.forEach((dot, idx) => {
             if (idx === index) {
@@ -80,11 +80,11 @@ function initCarousel() {
         clearInterval(interval);
         interval = setInterval(() => updateSlide(index + 1), 5000);
     };
-    
+
     // Eventos de botones
     if (nextBtn) nextBtn.addEventListener('click', () => { updateSlide(index + 1); startAutoPlay(); });
     if (prevBtn) prevBtn.addEventListener('click', () => { updateSlide(index - 1); startAutoPlay(); });
-    
+
     // Eventos de puntos
     dots.forEach((dot, idx) => {
         dot.addEventListener('click', () => { updateSlide(idx); startAutoPlay(); });
@@ -103,7 +103,7 @@ function initSegurosList() {
 
     const render = (tipo) => {
         // Efecto visual de cambio de título
-        if(titulo) {
+        if (titulo) {
             titulo.style.opacity = '0';
             setTimeout(() => {
                 titulo.textContent = `Seguros para ${tipo === 'PERSONAS' ? 'Personas' : 'Empresas'}`;
@@ -115,8 +115,8 @@ function initSegurosList() {
         if (CATALOGO_SEGUROS[tipo]) {
             container.innerHTML = CATALOGO_SEGUROS[tipo].map((s, index) => {
                 const slug = s.titulo.toLowerCase().replace(/\s+/g, '-');
-                const delay = index * 100; 
-                
+                const delay = index * 100;
+
                 return `
                 <a href="detalleSeguro.html?tipo=${slug}" class="block h-full group" data-aos="fade-up" data-aos-delay="${delay}">
                     <div class="bg-white rounded-2xl shadow hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col border border-gray-100 relative overflow-hidden">
@@ -145,23 +145,23 @@ function initSegurosList() {
 
     // Función de scroll suave
     const scrollToList = () => {
-        if(sectionListado) {
+        if (sectionListado) {
             sectionListado.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
     // Eventos de los botones grandes
     if (tabEmpresas) {
-        tabEmpresas.addEventListener('click', () => { 
-            render('EMPRESAS'); 
-            scrollToList(); 
+        tabEmpresas.addEventListener('click', () => {
+            render('EMPRESAS');
+            scrollToList();
         });
     }
-    
+
     if (tabPersonas) {
-        tabPersonas.addEventListener('click', () => { 
-            render('PERSONAS'); 
-            scrollToList(); 
+        tabPersonas.addEventListener('click', () => {
+            render('PERSONAS');
+            scrollToList();
         });
     }
 
@@ -173,7 +173,7 @@ function initDetalleSeguro() {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('tipo');
     const container = document.getElementById('detalle-seguro');
-    
+
     if (!slug) return; // Si no hay slug, no hacemos nada (o redirigir)
 
     // Buscar en la base de datos
@@ -226,7 +226,7 @@ function initCotizadorDinamico() {
         categoriaSelect.addEventListener('change', (e) => {
             segurosSelect.innerHTML = '<option value="">Seleccione un seguro</option>';
             const tipo = e.target.value.toUpperCase();
-            
+
             if (CATALOGO_SEGUROS[tipo]) {
                 CATALOGO_SEGUROS[tipo].forEach(s => {
                     const opt = document.createElement('option');
@@ -236,7 +236,7 @@ function initCotizadorDinamico() {
                 });
             }
             // Ocultar salud al cambiar de categoría
-            if(camposSalud) camposSalud.classList.add('hidden');
+            if (camposSalud) camposSalud.classList.add('hidden');
         });
 
         // Detectar si elige "Salud"
@@ -280,36 +280,57 @@ function agregarDependiente(container) {
 
     div.querySelector('.borrar').addEventListener('click', () => {
         if (container.children.length > 1) div.remove();
-        else div.querySelectorAll('input,select').forEach(i => i.value='');
+        else div.querySelectorAll('input,select').forEach(i => i.value = '');
     });
     div.querySelector('.agregar').addEventListener('click', () => agregarDependiente(container));
 }
 
+// ============================================================
+// CONEXIÓN CON NETLIFY FORMS (AJAX)
+// ============================================================
 function initFormulario(form) {
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Evitar recarga
+
         const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.textContent;
+        const textoOriginal = btn.textContent;
+
+        // 1. Estado de carga
         btn.textContent = "Enviando...";
         btn.disabled = true;
 
         try {
+            // 2. Preparar datos para Netlify
             const formData = new FormData(form);
-            const response = await fetch('procesar_formulario.php', { method: 'POST', body: formData });
-            const result = await response.json();
-            alert(result.success ? "✅ " + result.message : "⚠️ " + result.message);
-            if(result.success) {
+
+            // Netlify necesita los datos como URL encoded, no como JSON/Multipart estándar
+            const data = new URLSearchParams(formData).toString();
+
+            // 3. Enviar (Fetch a la raíz "/")
+            const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: data
+            });
+
+            if (response.ok) {
+                // ÉXITO
+                alert("✅ ¡Gracias! Tu mensaje ha sido enviado correctamente.");
                 form.reset();
+
+                // Ocultar campos extra si existen
                 const camposSalud = document.getElementById('campos-salud');
-                if(camposSalud) camposSalud.classList.add('hidden');
+                if (camposSalud) camposSalud.classList.add('hidden');
+            } else {
+                throw new Error('Error en la respuesta del servidor');
             }
-        } catch (err) {
-            // Fallback para pruebas sin backend
-            console.warn("Backend no respondió, mostrando éxito simulado.");
-            alert("✅ Mensaje enviado correctamente (Simulación).");
-            form.reset();
+
+        } catch (error) {
+            console.error(error);
+            alert("❌ Hubo un problema al enviar. Por favor intenta nuevamente.");
         } finally {
-            btn.textContent = originalText;
+            // 4. Restaurar botón
+            btn.textContent = textoOriginal;
             btn.disabled = false;
         }
     });
