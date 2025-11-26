@@ -1,34 +1,18 @@
 // ==========================================
-// js/app.js - Lógica para tu HTML actual
+// js/app.js - Lógica con Alertas Premium
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Menú Móvil
     initMobileMenu();
-
-    // 2. Carrusel (Solo si existe en la página)
-    if (document.querySelector('.carousel-track')) {
-        initCarousel();
-    }
-
-    // 3. Listado de Seguros (Solo en seguros.html)
-    if (document.getElementById('lista-seguros')) {
-        initSegurosList();
-    }
-
-    // 4. Detalle de Seguro (Solo en detalleSeguro.html)
-    if (document.getElementById('detalle-seguro')) {
-        initDetalleSeguro();
-    }
-
-    // 5. Formularios
+    if (document.querySelector('.carousel-track')) initCarousel();
+    if (document.getElementById('lista-seguros')) initSegurosList();
+    if (document.getElementById('detalle-seguro')) initDetalleSeguro();
+    
     const forms = document.querySelectorAll('form');
     forms.forEach(form => initFormulario(form));
 
-    // 6. Cotizador Dinámico (Salud / Dependientes)
     initCotizadorDinamico();
 
-    // 7. Animaciones AOS
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 1000, once: true });
     }
@@ -40,38 +24,30 @@ function initMobileMenu() {
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
     if (btn && menu) {
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
     }
 }
 
 function initCarousel() {
     const track = document.querySelector('.carousel-track');
-    // Convertimos a Array para evitar errores de conteo
-    const slides = Array.from(track.children);
+    const slides = Array.from(track.children); 
     const nextBtn = document.querySelector('.carousel-next');
     const prevBtn = document.querySelector('.carousel-prev');
     const dots = document.querySelectorAll('.carousel-dot');
-
+    
     let index = 0;
     let interval;
 
     const updateSlide = (i) => {
-        // Lógica circular
         index = (i + slides.length) % slides.length;
-
-        // Mover el track (funciona con tu CSS de flex)
         track.style.transform = `translateX(-${index * 100}%)`;
-
-        // Actualizar puntos
         dots.forEach((dot, idx) => {
             if (idx === index) {
-                dot.classList.remove('bg-white/60');
-                dot.classList.add('bg-white'); // Clase activa
+                dot.classList.remove('bg-gray-300');
+                dot.classList.add('bg-[#FF6600]', 'scale-125');
             } else {
-                dot.classList.add('bg-white/60');
-                dot.classList.remove('bg-white');
+                dot.classList.add('bg-gray-300');
+                dot.classList.remove('bg-[#FF6600]', 'scale-125');
             }
         });
     };
@@ -80,17 +56,13 @@ function initCarousel() {
         clearInterval(interval);
         interval = setInterval(() => updateSlide(index + 1), 5000);
     };
-
-    // Eventos de botones
+    
     if (nextBtn) nextBtn.addEventListener('click', () => { updateSlide(index + 1); startAutoPlay(); });
     if (prevBtn) prevBtn.addEventListener('click', () => { updateSlide(index - 1); startAutoPlay(); });
-
-    // Eventos de puntos
     dots.forEach((dot, idx) => {
         dot.addEventListener('click', () => { updateSlide(idx); startAutoPlay(); });
     });
 
-    // Iniciar
     startAutoPlay();
 }
 
@@ -102,8 +74,7 @@ function initSegurosList() {
     const sectionListado = document.getElementById('listado-seguros');
 
     const render = (tipo) => {
-        // Efecto visual de cambio de título
-        if (titulo) {
+        if(titulo) {
             titulo.style.opacity = '0';
             setTimeout(() => {
                 titulo.textContent = `Seguros para ${tipo === 'PERSONAS' ? 'Personas' : 'Empresas'}`;
@@ -111,31 +82,30 @@ function initSegurosList() {
             }, 200);
         }
 
-        // Generar tarjetas (Usando el diseño que pediste)
         if (CATALOGO_SEGUROS[tipo]) {
             container.innerHTML = CATALOGO_SEGUROS[tipo].map((s, index) => {
                 const slug = s.titulo.toLowerCase().replace(/\s+/g, '-');
-                const delay = index * 100;
-
+                const delay = index * 100; 
+                
                 return `
                 <a href="detalleSeguro.html?tipo=${slug}" class="block h-full group" data-aos="fade-up" data-aos-delay="${delay}">
-                    <div class="bg-white rounded-2xl shadow hover:shadow-xl transition-all duration-300 p-6 h-full flex flex-col border border-gray-100 relative overflow-hidden">
-                        <div class="absolute top-4 right-4 bg-gray-100 px-2 py-1 rounded text-xs font-bold text-[#FF6600]">
-                            ${tipo === 'PERSONAS' ? 'Personal' : 'Empresa'}
+                    <div class="hover-card bg-white rounded-3xl overflow-hidden h-full flex flex-col border border-gray-100 relative shadow-md hover:shadow-xl transition-all duration-300">
+                        <div class="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#FF6600] shadow-sm">
+                            ${tipo === 'PERSONAS' ? 'Personal' : 'Corporativo'}
                         </div>
-
-                        <div class="h-48 rounded-xl overflow-hidden mb-4 bg-gray-50 relative">
-                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                        <div class="h-56 overflow-hidden relative">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                            <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
                                  src="${s.img}" alt="${s.titulo}" loading="lazy">
                         </div>
-
-                        <h3 class="font-bold text-xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors">${s.titulo}</h3>
-                        <p class="text-gray-600 text-sm flex-grow mb-4 leading-relaxed">
-                            ${s.descripcion.substring(0, 100)}...
-                        </p>
-                        
-                        <div class="text-[#FF6600] font-semibold text-sm flex items-center gap-2">
-                            Ver más <span class="text-lg">→</span>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors">${s.titulo}</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow mb-4">
+                                ${s.descripcion}
+                            </p>
+                            <div class="text-[#FF6600] font-semibold text-sm flex items-center gap-2">
+                                Ver detalles <span class="group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
                         </div>
                     </div>
                 </a>`;
@@ -143,29 +113,13 @@ function initSegurosList() {
         }
     };
 
-    // Función de scroll suave
     const scrollToList = () => {
-        if (sectionListado) {
-            sectionListado.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if(sectionListado) sectionListado.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    // Eventos de los botones grandes
-    if (tabEmpresas) {
-        tabEmpresas.addEventListener('click', () => {
-            render('EMPRESAS');
-            scrollToList();
-        });
-    }
+    if (tabEmpresas) tabEmpresas.addEventListener('click', () => { render('EMPRESAS'); scrollToList(); });
+    if (tabPersonas) tabPersonas.addEventListener('click', () => { render('PERSONAS'); scrollToList(); });
 
-    if (tabPersonas) {
-        tabPersonas.addEventListener('click', () => {
-            render('PERSONAS');
-            scrollToList();
-        });
-    }
-
-    // Carga inicial
     render('EMPRESAS');
 }
 
@@ -173,10 +127,9 @@ function initDetalleSeguro() {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('tipo');
     const container = document.getElementById('detalle-seguro');
+    
+    if (!slug) return;
 
-    if (!slug) return; // Si no hay slug, no hacemos nada (o redirigir)
-
-    // Buscar en la base de datos
     const todos = [...CATALOGO_SEGUROS.PERSONAS, ...CATALOGO_SEGUROS.EMPRESAS];
     const s = todos.find(item => item.titulo.toLowerCase().replace(/\s+/g, '-') === slug);
 
@@ -185,30 +138,33 @@ function initDetalleSeguro() {
         return;
     }
 
-    const coberturasList = s.coberturas ? s.coberturas.map(c => `<li>${c}</li>`).join('') : '';
+    const listItems = s.coberturas ? s.coberturas.map(c => `<li class="flex items-center gap-2"><span class="text-[#FF6600]">•</span> ${c}</li>`).join('') : '';
 
     container.innerHTML = `
-        <div class="grid md:grid-cols-2 gap-8 items-start">
-            <div class="rounded-2xl overflow-hidden shadow-lg h-[350px] md:h-[450px]">
-                <img src="${s.img}" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="${s.titulo}">
-            </div>
-            <div>
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-4">${s.titulo}</h1>
-                <p class="text-lg text-gray-600 mb-6 leading-relaxed">${s.descripcion}</p>
+        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-auto md:h-[500px] border border-gray-100">
+            <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative z-20 bg-white">
+                <div class="mb-4">
+                    <span class="bg-orange-100 text-[#FF6600] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Detalle del Producto</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">${s.titulo}</h1>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">${s.descripcion}</p>
                 
-                <div class="bg-orange-50 p-6 rounded-xl border border-orange-100 mb-8">
-                    <h3 class="font-bold text-orange-800 mb-3 uppercase tracking-wider text-sm">Coberturas Principales</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        ${coberturasList}
+                <div class="mb-8">
+                    <h3 class="font-bold text-gray-800 mb-3 uppercase tracking-wide text-sm">Coberturas Principales</h3>
+                    <ul class="space-y-2 text-gray-600 font-medium">
+                        ${listItems}
                     </ul>
                 </div>
 
-                <a href="#form-cotizar" class="inline-block w-full md:w-auto text-center bg-[#FF6600] hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition transform hover:-translate-y-1">
-                    Solicitar Cotización
-                </a>
-                <a href="seguros.html" class="block md:inline-block mt-4 md:mt-0 md:ml-6 text-center text-gray-500 hover:text-gray-800 font-medium underline">
-                    Volver al catálogo
-                </a>
+                <div class="flex gap-4">
+                    <a href="#form-cotizar" class="inline-block bg-gradient-to-r from-[#FF6600] to-orange-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
+                        Cotizar Ahora
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 h-full relative">
+                <img src="${s.img}" class="w-full h-full object-cover" alt="${s.titulo}">
+                <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-10 hidden md:block"></div>
             </div>
         </div>
     `;
@@ -222,11 +178,9 @@ function initCotizadorDinamico() {
     const depContainer = document.getElementById('dependientes-container');
 
     if (categoriaSelect && segurosSelect) {
-        // Cambio de categoría
         categoriaSelect.addEventListener('change', (e) => {
             segurosSelect.innerHTML = '<option value="">Seleccione un seguro</option>';
             const tipo = e.target.value.toUpperCase();
-
             if (CATALOGO_SEGUROS[tipo]) {
                 CATALOGO_SEGUROS[tipo].forEach(s => {
                     const opt = document.createElement('option');
@@ -235,11 +189,9 @@ function initCotizadorDinamico() {
                     segurosSelect.appendChild(opt);
                 });
             }
-            // Ocultar salud al cambiar de categoría
-            if (camposSalud) camposSalud.classList.add('hidden');
+            if(camposSalud) camposSalud.classList.add('hidden');
         });
 
-        // Detectar si elige "Salud"
         segurosSelect.addEventListener('change', (e) => {
             if (!camposSalud) return;
             if (e.target.value === 'Salud') {
@@ -250,7 +202,6 @@ function initCotizadorDinamico() {
         });
     }
 
-    // Lógica de dependientes
     if (incluirDep && depContainer) {
         incluirDep.addEventListener('change', (e) => {
             depContainer.innerHTML = '';
@@ -258,7 +209,7 @@ function initCotizadorDinamico() {
                 depContainer.classList.remove('hidden');
                 agregarDependiente(depContainer);
             } else {
-                depContainer.classList.add('hidden');
+                dependientesContainer.classList.add('hidden');
             }
         });
     }
@@ -280,57 +231,65 @@ function agregarDependiente(container) {
 
     div.querySelector('.borrar').addEventListener('click', () => {
         if (container.children.length > 1) div.remove();
-        else div.querySelectorAll('input,select').forEach(i => i.value = '');
+        else div.querySelectorAll('input,select').forEach(i => i.value='');
     });
     div.querySelector('.agregar').addEventListener('click', () => agregarDependiente(container));
 }
 
 // ============================================================
-// CONEXIÓN CON NETLIFY FORMS (Backend Automático)
+// CONEXIÓN CON NETLIFY FORMS + SWEETALERT2 (Alertas Bonitas)
 // ============================================================
 function initFormulario(form) {
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Evitar que la página se recargue
+        e.preventDefault();
         
         const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.innerHTML; // Guardamos el icono y texto
+        const originalText = btn.innerHTML;
         
-        // 1. Estado de carga visual
+        // Estado de carga
         btn.textContent = "Enviando...";
         btn.disabled = true;
 
         try {
-            // 2. Capturar los datos del formulario
             const formData = new FormData(form);
-            
-            // 3. Convertir datos para Netlify (x-www-form-urlencoded)
-            // Netlify espera los datos como una cadena URL, no como JSON u objeto.
             const data = new URLSearchParams(formData).toString();
 
-            // 4. Enviar petición a la raíz "/"
             const response = await fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: data
             });
 
-            // 5. Verificar respuesta
             if (response.ok) {
-                alert("✅ ¡Recibido! Tu solicitud ha sido enviada correctamente.");
+                // ALERTA DE ÉXITO (SweetAlert)
+                Swal.fire({
+                    title: '¡Solicitud Enviada!',
+                    text: 'Hemos recibido tus datos correctamente. Un asesor se pondrá en contacto contigo a la brevedad.',
+                    icon: 'success',
+                    confirmButtonColor: '#FF6600',
+                    confirmButtonText: 'Genial',
+                    background: '#fff',
+                    backdrop: `rgba(0,0,0,0.4)`
+                });
+
                 form.reset();
-                
-                // Ocultar campos extra de Salud si estaban abiertos
                 const camposSalud = document.getElementById('campos-salud');
                 if(camposSalud) camposSalud.classList.add('hidden');
             } else {
-                throw new Error('Error en el servidor de Netlify');
+                throw new Error('Error en Netlify');
             }
 
         } catch (error) {
             console.error(error);
-            alert("❌ Hubo un problema al enviar. Por favor intenta nuevamente.");
+            // ALERTA DE ERROR (SweetAlert)
+            Swal.fire({
+                title: 'Hubo un problema',
+                text: 'No pudimos enviar tu solicitud. Por favor revisa tu conexión o inténtalo más tarde.',
+                icon: 'error',
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Cerrar'
+            });
         } finally {
-            // 6. Restaurar el botón
             btn.innerHTML = originalText;
             btn.disabled = false;
         }
