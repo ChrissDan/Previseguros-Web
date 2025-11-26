@@ -286,51 +286,52 @@ function agregarDependiente(container) {
 }
 
 // ============================================================
-// CONEXIÓN CON NETLIFY FORMS (AJAX)
+// CONEXIÓN CON NETLIFY FORMS (Backend Automático)
 // ============================================================
 function initFormulario(form) {
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Evitar recarga
-
+        e.preventDefault(); // Evitar que la página se recargue
+        
         const btn = form.querySelector('button[type="submit"]');
-        const textoOriginal = btn.textContent;
-
-        // 1. Estado de carga
+        const originalText = btn.innerHTML; // Guardamos el icono y texto
+        
+        // 1. Estado de carga visual
         btn.textContent = "Enviando...";
         btn.disabled = true;
 
         try {
-            // 2. Preparar datos para Netlify
+            // 2. Capturar los datos del formulario
             const formData = new FormData(form);
-
-            // Netlify necesita los datos como URL encoded, no como JSON/Multipart estándar
+            
+            // 3. Convertir datos para Netlify (x-www-form-urlencoded)
+            // Netlify espera los datos como una cadena URL, no como JSON u objeto.
             const data = new URLSearchParams(formData).toString();
 
-            // 3. Enviar (Fetch a la raíz "/")
+            // 4. Enviar petición a la raíz "/"
             const response = await fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: data
             });
 
+            // 5. Verificar respuesta
             if (response.ok) {
-                // ÉXITO
-                alert("✅ ¡Gracias! Tu mensaje ha sido enviado correctamente.");
+                alert("✅ ¡Recibido! Tu solicitud ha sido enviada correctamente.");
                 form.reset();
-
-                // Ocultar campos extra si existen
+                
+                // Ocultar campos extra de Salud si estaban abiertos
                 const camposSalud = document.getElementById('campos-salud');
-                if (camposSalud) camposSalud.classList.add('hidden');
+                if(camposSalud) camposSalud.classList.add('hidden');
             } else {
-                throw new Error('Error en la respuesta del servidor');
+                throw new Error('Error en el servidor de Netlify');
             }
 
         } catch (error) {
             console.error(error);
             alert("❌ Hubo un problema al enviar. Por favor intenta nuevamente.");
         } finally {
-            // 4. Restaurar botón
-            btn.textContent = textoOriginal;
+            // 6. Restaurar el botón
+            btn.innerHTML = originalText;
             btn.disabled = false;
         }
     });
