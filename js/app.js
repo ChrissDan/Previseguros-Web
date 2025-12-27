@@ -66,6 +66,9 @@ function initCarousel() {
     startAutoPlay();
 }
 
+/* ==========================================
+   LISTADO DE SEGUROS (OPTIMIZADO Y FLUIDO)
+   ========================================== */
 function initSegurosList() {
     const container = document.getElementById('lista-seguros');
     const titulo = document.getElementById('seguro-titulo');
@@ -74,6 +77,7 @@ function initSegurosList() {
     const sectionListado = document.getElementById('listado-seguros');
 
     const render = (tipo) => {
+        // 1. Efecto visual en el título
         if(titulo) {
             titulo.style.opacity = '0';
             setTimeout(() => {
@@ -82,92 +86,181 @@ function initSegurosList() {
             }, 200);
         }
 
+        // 2. Renderizar Tarjetas
         if (CATALOGO_SEGUROS[tipo]) {
             container.innerHTML = CATALOGO_SEGUROS[tipo].map((s, index) => {
                 const slug = s.titulo.toLowerCase().replace(/\s+/g, '-');
-                const delay = index * 100; 
+                // Reduje el delay base para que la animación empiece antes
+                const delay = index * 50; 
                 
                 return `
-                <a href="detalleSeguro.html?tipo=${slug}" class="block h-full group" data-aos="fade-up" data-aos-delay="${delay}">
-                    <div class="hover-card bg-white rounded-3xl overflow-hidden h-full flex flex-col border border-gray-100 relative shadow-md hover:shadow-xl transition-all duration-300">
-                        <div class="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#FF6600] shadow-sm">
-                            ${tipo === 'PERSONAS' ? 'Personal' : 'Corporativo'}
-                        </div>
-                        <div class="h-56 overflow-hidden relative">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity"></div>
+                <a href="detalleSeguro.html?tipo=${slug}" class="group h-full block" data-aos="fade-up" data-aos-delay="${delay}">
+                    <div class="bg-white rounded-[2rem] overflow-hidden h-full flex flex-col border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-orange-100/50 transition-all duration-500 hover:-translate-y-1 relative">
+                        <div class="h-64 overflow-hidden relative">
+                            <div class="absolute inset-0 bg-gray-900/10 group-hover:bg-transparent z-10 transition-colors duration-500"></div>
                             <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
                                  src="${s.img}" alt="${s.titulo}" loading="lazy">
+                            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                                <span class="text-xs font-bold tracking-widest uppercase text-[#FF6600]">
+                                    ${tipo === 'PERSONAS' ? 'Personal' : 'Empresarial'}
+                                </span>
+                            </div>
                         </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors">${s.titulo}</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed flex-grow mb-4">
+                        <div class="p-8 flex flex-col flex-grow relative">
+                            <h3 class="text-2xl font-extrabold text-gray-900 mb-3 group-hover:text-[#FF6600] transition-colors">
+                                ${s.titulo}
+                            </h3>
+                            <p class="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3 flex-grow font-medium">
                                 ${s.descripcion}
                             </p>
-                            <div class="text-[#FF6600] font-semibold text-sm flex items-center gap-2">
-                                Ver detalles <span class="group-hover:translate-x-1 transition-transform">→</span>
+                            <div class="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between text-gray-900 group-hover:text-[#FF6600] transition-colors">
+                                <span class="font-bold text-sm uppercase tracking-wide">Ver Cobertura</span>
+                                <div class="bg-gray-50 group-hover:bg-[#FF6600] group-hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform group-hover:rotate-[-45deg]">
+                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </a>`;
             }).join('');
+            
+            // 3. Actualizar Iconos y Animaciones
+            if(window.lucide) lucide.createIcons();
+            if(window.AOS) setTimeout(() => AOS.refresh(), 100); // Refrescar animaciones
         }
     };
 
     const scrollToList = () => {
-        if(sectionListado) sectionListado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if(sectionListado) {
+            // SOLUCIÓN: Esperamos 100ms para que el navegador termine de "pintar" las tarjetas
+            // antes de iniciar el desplazamiento. Esto elimina el "trabe".
+            setTimeout(() => {
+                // Cálculo manual para un scroll más preciso (dejando espacio para el header fijo)
+                const headerOffset = 100;
+                const elementPosition = sectionListado.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }, 100);
+        }
     };
 
-    if (tabEmpresas) tabEmpresas.addEventListener('click', () => { render('EMPRESAS'); scrollToList(); });
-    if (tabPersonas) tabPersonas.addEventListener('click', () => { render('PERSONAS'); scrollToList(); });
+    if (tabEmpresas) tabEmpresas.addEventListener('click', () => { 
+        render('EMPRESAS'); 
+        scrollToList(); 
+    });
+    
+    if (tabPersonas) tabPersonas.addEventListener('click', () => { 
+        render('PERSONAS'); 
+        scrollToList(); 
+    });
 
+    // Carga inicial sin scroll
     render('EMPRESAS');
 }
 
+/* ==========================================
+   DETALLE DEL SEGURO (CON AUTO-LLENADO INTELIGENTE)
+   ========================================== */
 function initDetalleSeguro() {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('tipo');
     const container = document.getElementById('detalle-seguro');
     
-    if (!slug) return;
+    if (!slug || !container) return; 
 
-    const todos = [...CATALOGO_SEGUROS.PERSONAS, ...CATALOGO_SEGUROS.EMPRESAS];
-    const s = todos.find(item => item.titulo.toLowerCase().replace(/\s+/g, '-') === slug);
+    // 1. Buscar el seguro
+    let s = CATALOGO_SEGUROS.PERSONAS.find(item => item.titulo.toLowerCase().replace(/\s+/g, '-') === slug);
+    let tipoCategoria = 'Personas'; 
+
+    if (!s) {
+        s = CATALOGO_SEGUROS.EMPRESAS.find(item => item.titulo.toLowerCase().replace(/\s+/g, '-') === slug);
+        tipoCategoria = 'Empresas'; 
+    }
 
     if (!s) {
         container.innerHTML = `<div class="text-center py-10"><h2 class="text-2xl font-bold text-gray-700">Seguro no encontrado</h2><a href="seguros.html" class="text-[#FF6600] mt-4 block hover:underline">Volver a Seguros</a></div>`;
         return;
     }
 
-    const listItems = s.coberturas ? s.coberturas.map(c => `<li class="flex items-center gap-2"><span class="text-[#FF6600]">•</span> ${c}</li>`).join('') : '';
+    // 2. Renderizar el HTML (Igual que antes)
+    const listItems = s.coberturas ? s.coberturas.map(c => `<li class="flex items-center gap-2"><span class="text-[#FF6600] text-xl">•</span> ${c}</li>`).join('') : '';
 
     container.innerHTML = `
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-auto md:h-[500px] border border-gray-100">
-            <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center relative z-20 bg-white">
-                <div class="mb-4">
-                    <span class="bg-orange-100 text-[#FF6600] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Detalle del Producto</span>
+        <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[550px] border border-gray-100 animate-fade-in-up">
+            <div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center relative z-20 bg-white">
+                <div class="mb-6">
+                    <span class="bg-orange-50 text-[#FF6600] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border border-orange-100">
+                        ${tipoCategoria === 'Personas' ? 'Seguro Personal' : 'Seguro Corporativo'}
+                    </span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">${s.titulo}</h1>
-                <p class="text-lg text-gray-600 mb-8 leading-relaxed">${s.descripcion}</p>
+                <p class="text-lg text-gray-600 mb-10 leading-relaxed">${s.descripcion}</p>
                 
-                <div class="mb-8">
-                    <h3 class="font-bold text-gray-800 mb-3 uppercase tracking-wide text-sm">Coberturas Principales</h3>
-                    <ul class="space-y-2 text-gray-600 font-medium">
+                <div class="mb-10 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                    <h3 class="font-bold text-gray-900 mb-4 uppercase tracking-wide text-sm flex items-center gap-2">
+                        <i data-lucide="shield-check" class="text-[#FF6600]"></i> Coberturas Principales
+                    </h3>
+                    <ul class="space-y-3 text-gray-600 font-medium">
                         ${listItems}
                     </ul>
                 </div>
 
-                <div class="flex gap-4">
-                    <a href="#form-cotizar" class="inline-block bg-gradient-to-r from-[#FF6600] to-orange-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
-                        Cotizar Ahora
+                <div class="flex gap-4 mt-auto">
+                    <a href="#form-cotizar" class="w-full md:w-auto text-center inline-block bg-gradient-to-r from-[#FF6600] to-orange-500 text-white font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-orange-200 hover:-translate-y-1 transition duration-300">
+                        Cotizar este Seguro
                     </a>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 h-full relative">
-                <img src="${s.img}" class="w-full h-full object-cover" alt="${s.titulo}">
-                <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent z-10 hidden md:block"></div>
+            <div class="w-full md:w-1/2 relative min-h-[300px] md:min-h-full">
+                <img src="${s.img}" class="absolute inset-0 w-full h-full object-cover" alt="${s.titulo}">
+                <div class="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent z-10 hidden md:block"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10 md:hidden"></div>
             </div>
         </div>
     `;
+
+    if(window.lucide) lucide.createIcons();
+
+    // ========================================================
+    // AUTO-LLENADO MEJORADO (Detecta Salud/EPS)
+    // ========================================================
+    setTimeout(() => {
+        const catSelect = document.getElementById('categoria');
+        const segSelect = document.getElementById('seguros');
+        const camposSalud = document.getElementById('campos-salud'); // Contenedor oculto
+
+        if (catSelect && segSelect) {
+            // A. Seleccionar Categoría y forzar carga de productos
+            catSelect.value = tipoCategoria;
+            catSelect.dispatchEvent(new Event('change'));
+
+            // B. Seleccionar Producto específico
+            setTimeout(() => {
+                segSelect.value = s.titulo;
+
+                // C. DETECTAR SI ES SALUD O EPS PARA MOSTRAR CAMPOS EXTRA
+                const tituloLower = s.titulo.toLowerCase();
+                const esSalud = tituloLower.includes('salud') || 
+                                tituloLower.includes('médico') || 
+                                tituloLower.includes('eps') || 
+                                tituloLower.includes('oncolog');
+
+                if (esSalud && camposSalud) {
+                    camposSalud.classList.remove('hidden'); // Mostrar campos
+                    
+                    // Opcional: Hacer scroll suave hacia los campos nuevos para que el usuario los vea
+                    // camposSalud.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else if (camposSalud) {
+                    camposSalud.classList.add('hidden'); // Asegurar que estén ocultos si no es salud
+                }
+
+            }, 50);
+        }
+    }, 100);
 }
 
 function initCotizadorDinamico() {
