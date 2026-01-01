@@ -90,13 +90,11 @@ html { scroll-behavior: smooth; }
 .socios-track img {
     height: 50px;
     width: auto;
-    filter: grayscale(100%) opacity(0.5);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .socios-track img:hover {
-    filter: grayscale(0%) opacity(1);
     transform: scale(1.1);
 }
 

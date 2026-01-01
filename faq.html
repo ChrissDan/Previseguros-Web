@@ -71,17 +71,24 @@
 
   <main class="pt-20">
     
-    <section class="bg-white py-20 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('img/textura4.png');"></div>
+    <section class="relative py-32 md:py-48 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="img/faq.webp" alt="Fondo FAQ" class="w-full h-full object-cover object-[center_65%]">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
         <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
-            <span class="text-[#FF6600] font-bold uppercase tracking-widest text-sm bg-orange-50 px-4 py-1 rounded-full">Centro de Ayuda</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-4 mb-6">Preguntas Frecuentes</h1>
-            <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+            <span class="text-orange-400 font-bold uppercase tracking-widest text-sm bg-black/40 backdrop-blur-sm px-4 py-1 rounded-full border border-orange-500/30">
+                Centro de Ayuda
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-6 drop-shadow-md">
+                Preguntas Frecuentes
+            </h1>
+            <p class="text-gray-200 mt-4 max-w-2xl mx-auto text-lg">
                 Resolvemos tus dudas principales sobre seguros, coberturas y trámites de forma clara y rápida.
             </p>
         </div>
     </section>
-
     <section class="py-20 bg-gray-50">
       <div class="container mx-auto px-6 max-w-4xl">
         
@@ -222,6 +229,13 @@
     AOS.init({
       duration: 800,
       once: true
+    });
+    
+    // Script básico para el menú móvil
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
     });
   </script>
   <script src="js/data.js"></script>
