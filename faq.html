@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVISEGUROS | Preguntas Frecuentes</title>
+  <link rel="icon" type="image/png" href="img/logos/logo4.ico">
+  <link rel="icon" href="assets/favicon.png">
+  
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary ~ * { animation: sweep .3s ease-in-out; }
+    @keyframes sweep {
+      0%    {opacity: 0; transform: translateY(-10px)}
+      100%  {opacity: 1; transform: translateY(0)}
+    }
+    details[open] .icon-rotate { transform: rotate(180deg); }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans selection:bg-orange-100 selection:text-orange-600">
+  
+  <header class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="hover:opacity-80 transition block shrink-0">
+        <img src="img/logos/logo5.jpg" alt="Previseguros" class="w-36 md:w-48 h-auto">
+      </a>
+      <ul class="hidden md:flex items-center gap-6 font-medium text-gray-600">
+        <li><a href="index.html" class="hover:text-[#FF6600] transition">Inicio</a></li>
+        <li><a href="seguros.html" class="hover:text-[#FF6600] transition">Seguros</a></li>
+        <li><a href="nosotros.html" class="hover:text-[#FF6600] transition">Nosotros</a></li>
+        <li><a href="contacto.html" class="hover:text-[#FF6600] transition">Contacto</a></li>
+        <li><a href="faq.html" class="text-[#FF6600] font-bold">Preguntas Frecuentes</a></li>
+        <li>
+          <a href="contacto.html" class="bg-[#FF6600] text-white px-5 py-2.5 rounded-full hover:bg-orange-700 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            Cotizar Ahora
+          </a>
+        </li>
+      </ul>
+      <button id="menu-btn" class="md:hidden text-gray-700 hover:text-[#FF6600] focus:outline-none p-2">
+        <i data-lucide="menu" class="w-8 h-8"></i>
+      </button>
+    </nav>
+    <div id="menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-full animate-fade-in-up">
+      <div class="flex flex-col p-6 gap-4 text-center">
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="index.html">Inicio</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="seguros.html">Seguros</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="nosotros.html">Nosotros</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="contacto.html">Contacto</a>
+        <a class="py-2 font-bold text-[#FF6600] bg-orange-50 rounded-lg" href="faq.html">Preguntas Frecuentes</a>
+        <a href="contacto.html" class="mt-2 bg-[#FF6600] text-white py-3 rounded-xl font-bold shadow-md">Cotizar Ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16 md:pt-20">
+    
+    <section class="relative py-24 md:py-40 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="img/faq.webp" alt="Fondo FAQ" class="w-full h-full object-cover object-[center_65%]">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+
+        <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
+            <span class="text-orange-400 font-bold uppercase tracking-widest text-[10px] md:text-sm bg-black/40 backdrop-blur-sm px-4 py-1 rounded-full border border-orange-500/30">
+                Centro de Ayuda
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-4 md:mt-6 drop-shadow-md">
+                Preguntas Frecuentes
+            </h1>
+            <p class="text-gray-200 mt-4 max-w-2xl mx-auto text-base md:text-lg font-medium">
+                Resolvemos tus dudas principales sobre seguros, coberturas y trámites de forma clara y rápida.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-6 max-w-4xl">
+        
+        <div class="space-y-4 md:space-y-6">
+            <details class="group bg-white p-5 md:p-6 rounded-3xl shadow-md border border-gray-100 cursor-pointer open:border-orange-200 open:shadow-xl transition-all duration-300 hover:shadow-lg" data-aos="fade-up">
+                <summary class="flex justify-between items-center font-bold text-base md:text-lg text-gray-800 group-hover:text-[#FF6600] transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="help-circle" class="text-orange-400 w-6 h-6 shrink-0"></i>
+                        ¿Qué seguro me conviene más?
+                    </span>
+                    <span class="bg-gray-100 p-2 rounded-full group-open:bg-orange-100 transition icon-rotate shrink-0 ml-2">
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:text-[#FF6600]"></i>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 text-sm md:text-base">
+                    <p>Depende de tu perfil y objetivos. Te ayudamos a comparar opciones y costos según tu etapa de vida (vida, salud, vehicular) o rubro empresarial (SCTR, responsabilidad civil, flotas).</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-5 md:p-6 rounded-3xl shadow-md border border-gray-100 cursor-pointer open:border-orange-200 open:shadow-xl transition-all duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <summary class="flex justify-between items-center font-bold text-base md:text-lg text-gray-800 group-hover:text-[#FF6600] transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="clock" class="text-blue-400 w-6 h-6 shrink-0"></i>
+                        ¿Cuánto tarda activar una póliza?
+                    </span>
+                    <span class="bg-gray-100 p-2 rounded-full group-open:bg-orange-100 transition icon-rotate shrink-0 ml-2">
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:text-[#FF6600]"></i>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 text-sm md:text-base">
+                    <p>Usualmente entre 24 y 48 horas tras validar la documentación y el pago. Para el SOAT electrónico, la activación es casi inmediata una vez procesado el pago.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-5 md:p-6 rounded-3xl shadow-md border border-gray-100 cursor-pointer open:border-orange-200 open:shadow-xl transition-all duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <summary class="flex justify-between items-center font-bold text-base md:text-lg text-gray-800 group-hover:text-[#FF6600] transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="alert-triangle" class="text-red-400 w-6 h-6 shrink-0"></i>
+                        ¿Atienden siniestros?
+                    </span>
+                    <span class="bg-gray-100 p-2 rounded-full group-open:bg-orange-100 transition icon-rotate shrink-0 ml-2">
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:text-[#FF6600]"></i>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 text-sm md:text-base">
+                    <p>¡Sí, por supuesto! Esa es nuestra mayor fortaleza. Te acompañamos en todo el proceso de reporte, seguimiento y cobro de indemnizaciones para que no te sientas solo en momentos difíciles.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-5 md:p-6 rounded-3xl shadow-md border border-gray-100 cursor-pointer open:border-orange-200 open:shadow-xl transition-all duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <summary class="flex justify-between items-center font-bold text-base md:text-lg text-gray-800 group-hover:text-[#FF6600] transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="briefcase" class="text-green-400 w-6 h-6 shrink-0"></i>
+                        ¿Trabajan con aseguradoras específicas?
+                    </span>
+                    <span class="bg-gray-100 p-2 rounded-full group-open:bg-orange-100 transition icon-rotate shrink-0 ml-2">
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:text-[#FF6600]"></i>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 text-sm md:text-base">
+                    <p>Trabajamos con las compañías líderes del mercado peruano: Rímac, Pacífico, Mapfre, La Positiva, Sanitas, entre otras. Esto nos permite ofrecerte múltiples opciones para comparar.</p>
+                </div>
+            </details>
+
+            <details class="group bg-white p-5 md:p-6 rounded-3xl shadow-md border border-gray-100 cursor-pointer open:border-orange-200 open:shadow-xl transition-all duration-300 hover:shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                <summary class="flex justify-between items-center font-bold text-base md:text-lg text-gray-800 group-hover:text-[#FF6600] transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="file-text" class="text-purple-400 w-6 h-6 shrink-0"></i>
+                        ¿Cómo solicito una cotización?
+                    </span>
+                    <span class="bg-gray-100 p-2 rounded-full group-open:bg-orange-100 transition icon-rotate shrink-0 ml-2">
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-500 group-open:text-[#FF6600]"></i>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-600 leading-relaxed border-t border-gray-100 pt-4 text-sm md:text-base">
+                    <p>Puedes hacerlo desde nuestra página de <a href="seguros.html" class="text-[#FF6600] font-bold hover:underline">Seguros</a> completando el formulario, o escribiéndonos directamente por WhatsApp o correo electrónico.</p>
+                </div>
+            </details>
+        </div>
+
+        <div class="mt-12 md:mt-16 text-center bg-orange-50 rounded-3xl p-8 border border-orange-100" data-aos="fade-in">
+            <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-3">¿Tienes más dudas?</h3>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">Estamos listos para asesorarte personalmente.</p>
+            <a href="contacto.html" class="bg-gradient-to-r from-[#FF6600] to-orange-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition inline-block text-sm md:text-base">
+                Contáctanos
+            </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+      <div>
+        <img src="img/logos/logo3.png" alt="Previseguros" class="w-36 md:w-48 mb-6 brightness-0 invert opacity-90 mx-auto md:mx-0">
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Más de 20 años protegiendo familias y empresas en todo el Perú. Confianza, respaldo y asesoría personalizada.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2 justify-center md:justify-start">
+            <i data-lucide="map-pin" class="text-[#FF6600] w-5 h-5"></i> Contacto
+        </h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li>Av. Ejercito 101 Of. 306, Edif. Nasya I<br>Yanahuara, Arequipa</li>
+          <li class="flex items-center gap-2 justify-center md:justify-start"><i data-lucide="phone" class="w-4 h-4 text-[#FF6600]"></i> 958 325 773 / 958 536 377</li>
+          <li class="flex items-center gap-2 justify-center md:justify-start"><i data-lucide="mail" class="w-4 h-4 text-[#FF6600]"></i> informes@previseguros.com.pe</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold text-lg mb-6">Síguenos</h4>
+        <div class="flex gap-4 justify-center md:justify-start">
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+      © 2025 PREVISEGUROS. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    lucide.createIcons();
+    AOS.init({ duration: 800, once: true });
+  </script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

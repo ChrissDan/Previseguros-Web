@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PREVISEGUROS | Inicio</title>
+  <link rel="icon" type="image/png" href="img/logos/logo4.ico">
+  <link rel="icon" href="assets/favicon.png">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="PREVISEGUROS - Venta y asesoría de seguros para Personas y Empresas.">
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans selection:bg-orange-500 selection:text-white">
+
+  <header class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="hover:opacity-80 transition block shrink-0">
+        <img src="img/logos/logo5.jpg" alt="Previseguros" class="w-36 md:w-48 h-auto">
+      </a>
+      
+      <ul class="hidden md:flex items-center gap-6 font-medium text-gray-600">
+        <li><a href="index.html" class="text-[#FF6600] font-bold">Inicio</a></li>
+        <li><a href="seguros.html" class="hover:text-[#FF6600] transition">Seguros</a></li>
+        <li><a href="nosotros.html" class="hover:text-[#FF6600] transition">Nosotros</a></li>
+        <li><a href="contacto.html" class="hover:text-[#FF6600] transition">Contacto</a></li>
+        <li><a href="faq.html" class="hover:text-[#FF6600] transition">Preguntas Frecuentes</a></li>
+        <li>
+          <a href="contacto.html"
+            class="bg-[#FF6600] text-white px-5 py-2.5 rounded-full hover:bg-orange-700 transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            Cotizar Ahora
+          </a>
+        </li>
+      </ul>
+      
+      <button id="menu-btn" class="md:hidden text-gray-700 hover:text-[#FF6600] focus:outline-none p-2">
+        <i data-lucide="menu" class="w-8 h-8"></i>
+      </button>
+    </nav>
+
+    <div id="menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-xl absolute w-full left-0 top-full animate-fade-in-up">
+      <div class="flex flex-col p-6 gap-4 text-center">
+        <a class="py-2 font-bold text-[#FF6600] bg-orange-50 rounded-lg" href="index.html">Inicio</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="seguros.html">Seguros</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="nosotros.html">Nosotros</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="contacto.html">Contacto</a>
+        <a class="py-2 hover:text-[#FF6600] font-medium" href="faq.html">Preguntas Frecuentes</a>
+        <a href="contacto.html" class="mt-2 bg-[#FF6600] text-white py-3 rounded-xl font-bold shadow-md">Cotizar Ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-16 md:pt-20">
+
+    <section class="relative bg-white overflow-hidden shadow-xl group">
+      <div id="carousel" class="relative min-h-[600px] h-[85vh] md:h-[90vh]">
+
+        <div class="carousel-track flex h-full transition-transform duration-700 ease-in-out">
+
+          <div class="carousel-slide min-w-full flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-white px-6 md:px-16 pt-10 md:pt-0 relative overflow-hidden order-2 md:order-1">
+              <div class="absolute top-0 left-0 w-64 h-64 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
+
+              <div class="relative z-10 max-w-lg text-center md:text-left pb-10 md:pb-0" data-aos="fade-right">
+                <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-4 shadow-sm">
+                  Protección Total
+                </span>
+                <h1 class="text-3xl md:text-6xl font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight">
+                  Protegemos lo que <br>
+                  <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6600] to-orange-500 drop-shadow-sm">más valoras</span>
+                </h1>
+                <p class="text-gray-600 text-sm md:text-lg mb-6 md:mb-8 leading-relaxed max-w-xs mx-auto md:mx-0">
+                  Soluciones de seguros para Personas y Empresas con respaldo de las mejores aseguradoras.
+                </p>
+                <a href="seguros.html" class="bg-gradient-to-r from-[#FF6600] to-orange-500 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold shadow-lg hover:shadow-orange-500/40 transition inline-block transform hover:-translate-y-1 text-base md:text-lg">
+                  Conoce más
+                </a>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 h-[40%] md:h-full relative order-1 md:order-2">
+              <img src="img/protegemos.webp" class="w-full h-full object-cover" alt="Familia protegida">
+              <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-transparent to-transparent z-10 block pointer-events-none"></div>
+            </div>
+          </div>
+
+          <div class="carousel-slide min-w-full flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-white px-6 md:px-16 pt-10 md:pt-0 relative overflow-hidden order-2 md:order-1">
+              <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 translate-x-1/2 translate-y-1/2"></div>
+
+              <div class="relative z-10 max-w-lg text-center md:text-left pb-10 md:pb-0">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-4 shadow-sm">
+                  Asesoría Experta
+                </span>
+                <h1 class="text-3xl md:text-6xl font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight">
+                  Asesoría experta y <br><span class="text-blue-600">cercana</span>
+                </h1>
+                <p class="text-gray-600 text-sm md:text-lg mb-6 md:mb-8 leading-relaxed max-w-xs mx-auto md:mx-0">
+                  Te ayudamos a elegir la cobertura ideal según tu etapa y objetivos empresariales.
+                </p>
+                <a href="contacto.html" class="bg-gray-900 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold shadow-lg hover:shadow-xl transition inline-block transform hover:-translate-y-1 text-base md:text-lg">
+                  Habla con un asesor
+                </a>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 h-[40%] md:h-full relative order-1 md:order-2">
+              <img src="img/asesoria.webp" class="w-full h-full object-cover" alt="Seguros empresas">
+              <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-transparent to-transparent z-10 block pointer-events-none"></div>
+            </div>
+          </div>
+
+          <div class="carousel-slide min-w-full flex flex-col md:flex-row h-full">
+            <div class="w-full md:w-1/2 flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-white px-6 md:px-16 pt-10 md:pt-0 relative overflow-hidden order-2 md:order-1">
+              <div class="relative z-10 max-w-lg text-center md:text-left pb-10 md:pb-0">
+                <span class="inline-block py-1 px-3 rounded-full bg-green-100 text-green-600 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-4 shadow-sm">
+                  Confianza
+                </span>
+                <h1 class="text-3xl md:text-6xl font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight">
+                  Respaldo que <br><span class="text-green-600">inspira confianza</span>
+                </h1>
+                <p class="text-gray-600 text-sm md:text-lg mb-6 md:mb-8 leading-relaxed max-w-xs mx-auto md:mx-0">
+                  Trabajamos con las principales aseguradoras del país.
+                </p>
+                <a href="nosotros.html" class="bg-green-600 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-bold shadow-lg hover:shadow-green-600/40 transition inline-block transform hover:-translate-y-1 text-base md:text-lg">
+                  Nuestra historia
+                </a>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 h-[40%] md:h-full relative order-1 md:order-2">
+              <img src="img/confianza.webp" class="w-full h-full object-cover" alt="Trayectoria">
+              <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-transparent to-transparent z-10 block pointer-events-none"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-prev hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-14 h-14 shadow-xl items-center justify-center transition z-20 font-bold text-2xl hover:scale-110 group">
+          <span class="group-hover:text-[#FF6600] transition-colors">❮</span>
+        </button>
+        <button class="carousel-next hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-14 h-14 shadow-xl items-center justify-center transition z-20 font-bold text-2xl hover:scale-110 group">
+          <span class="group-hover:text-[#FF6600] transition-colors">❯</span>
+        </button>
+
+        <div class="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          <button class="carousel-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#FF6600] transition-all transform scale-125 ring-2 ring-white"></button>
+          <button class="carousel-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 transition-all hover:bg-gray-400"></button>
+          <button class="carousel-dot w-2 h-2 md:w-3 md:h-3 rounded-full bg-gray-300 transition-all hover:bg-gray-400"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-gray-900 relative overflow-hidden text-white">
+      <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('img/textura4.png')]"></div>
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#FF6600] rounded-full blur-[120px] opacity-20"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">¿Por qué elegirnos?</h2>
+            <div class="w-24 h-1.5 bg-[#FF6600] mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-gray-800 rounded-3xl p-1 overflow-hidden hover:-translate-y-2 transition duration-500 group shadow-2xl" data-aos="fade-up">
+            <div class="bg-gray-800 h-full rounded-[22px] p-6 md:p-7 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-8 -mt-8 transition group-hover:bg-[#FF6600]/20"></div>
+              <div class="h-40 md:h-48 rounded-2xl overflow-hidden mb-6 relative shadow-lg">
+                <img src="img/vidaley.webp" alt="Asesoría" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 opacity-90 group-hover:opacity-100">
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-[#FF6600] transition-colors">Asesoría Personalizada</h3>
+              <p class="text-gray-400 text-sm md:text-base leading-relaxed group-hover:text-gray-300">Recibe un acompañamiento cercano para elegir la mejor opción de seguro según tus necesidades reales.</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-800 rounded-3xl p-1 overflow-hidden hover:-translate-y-2 transition duration-500 group shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-gray-800 h-full rounded-[22px] p-6 md:p-7 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-8 -mt-8 transition group-hover:bg-[#FF6600]/20"></div>
+              <div class="h-40 md:h-48 rounded-2xl overflow-hidden mb-6 relative shadow-lg">
+                <img src="img/sctr1.webp" alt="Procesos Ágiles" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 opacity-90 group-hover:opacity-100">
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-[#FF6600] transition-colors">Procesos Ágiles</h3>
+              <p class="text-gray-400 text-sm md:text-base leading-relaxed group-hover:text-gray-300">Olvídate de los trámites engorrosos. Te ayudamos a gestionar tu seguro de manera rápida y sencilla.</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-800 rounded-3xl p-1 overflow-hidden hover:-translate-y-2 transition duration-500 group shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-gray-800 h-full rounded-[22px] p-6 md:p-7 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full -mr-8 -mt-8 transition group-hover:bg-[#FF6600]/20"></div>
+              <div class="h-40 md:h-48 rounded-2xl overflow-hidden mb-6 relative shadow-lg">
+                <img src="img/flotas.webp" alt="Respaldo Real" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 opacity-90 group-hover:opacity-100">
+              </div>
+              <h3 class="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-[#FF6600] transition-colors">Respaldo Real</h3>
+              <p class="text-gray-400 text-sm md:text-base leading-relaxed group-hover:text-gray-300">Con Previseguros, tienes la seguridad de contar con un equipo comprometido a responder cuando más lo necesites.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20 bg-gradient-to-r from-[#FF6600] to-[#ff8c00] text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('img/textura4.png')] opacity-10 mix-blend-overlay"></div>
+
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <h2 class="text-3xl md:text-5xl font-extrabold mb-6 drop-shadow-md">Nuestra Trayectoria</h2>
+        <p class="text-white/90 max-w-3xl mx-auto text-lg md:text-xl font-medium mb-10 leading-relaxed">
+          Más de 30 años asesorando a familias y empresas en todo el Perú. Crecemos contigo, innovamos para ti.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-6 md:gap-16">
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 w-32 md:w-auto px-6 md:px-10 border border-white/30">
+            <div class="text-3xl md:text-5xl font-extrabold mb-1">+30</div>
+            <div class="uppercase tracking-widest text-xs md:text-sm font-bold">Años</div>
+          </div>
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 w-32 md:w-auto px-6 md:px-10 border border-white/30">
+            <div class="text-3xl md:text-5xl font-extrabold mb-1">+5k</div>
+            <div class="uppercase tracking-widest text-xs md:text-sm font-bold">Clientes</div>
+          </div>
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6 w-32 md:w-auto px-6 md:px-10 border border-white/30">
+            <div class="text-3xl md:text-5xl font-extrabold mb-1">+15</div>
+            <div class="uppercase tracking-widest text-xs md:text-sm font-bold">Aliados</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full px-6 py-16 md:py-24 bg-gray-50 relative">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-gray-500 uppercase tracking-widest font-semibold text-xs md:text-sm">Lo que más buscan nuestros clientes</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2">Seguros más vendidos</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up">
+            <div class="h-48 md:h-56 rounded-2xl overflow-hidden mb-5 relative">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
+              <img src="img/vida.webp" alt="Seguro de Vida" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+            </div>
+            <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors text-center">Vida</h3>
+            <p class="text-gray-500 text-center text-sm md:text-base">Protección financiera para tu familia.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up" data-aos-delay="100">
+            <div class="h-48 md:h-56 rounded-2xl overflow-hidden mb-5 relative">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
+              <img src="img/salud.webp" alt="Seguro de Salud" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+            </div>
+            <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors text-center">Salud</h3>
+            <p class="text-gray-500 text-center text-sm md:text-base">Cobertura médica integral.</p>
+          </div>
+          <div class="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
+            <div class="h-48 md:h-56 rounded-2xl overflow-hidden mb-5 relative">
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
+              <img src="img/vehiculos.webp" alt="Seguro de Vehículos" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+            </div>
+            <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors text-center">Vehículos</h3>
+            <p class="text-gray-500 text-center text-sm md:text-base">Tranquilidad en cada viaje.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-12 md:py-16 border-t border-gray-100 overflow-hidden">
+      <div class="container mx-auto px-6">
+        <h2 class="text-center text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF6600] to-orange-500 drop-shadow-sm mb-10 md:mb-12 uppercase tracking-widest">
+          Confían en Nosotros
+        </h2>
+        <div class="relative w-full overflow-hidden">
+          <div class="socios-track flex items-center">
+            <img src="img/logos/mapfre1.png" alt="Mapfre">
+            <img src="img/logos/pacifico.png" alt="Pacífico">
+            <img src="img/logos/rimac.png" alt="Rimac">
+            <img src="img/logos/positiva.png" alt="La Positiva">
+            <img src="img/logos/secrex.jpg" alt="Secrex">
+            <img src="img/logos/sanitas.png" alt="Sanitas">
+            <img src="img/logos/protecta.png" alt="Protecta">
+            <img src="img/logos/avla.png" alt="Avla">
+            <img src="img/logos/crecer.png" alt="Crecer">
+            <img src="img/logos/mapfre1.png" alt="Mapfre">
+            <img src="img/logos/pacifico.png" alt="Pacífico">
+            <img src="img/logos/rimac.png" alt="Rimac">
+            <img src="img/logos/positiva.png" alt="La Positiva">
+            <img src="img/logos/secrex.jpg" alt="Secrex">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+      <div>
+        <img src="img/logos/logo3.png" alt="Previseguros" class="w-36 md:w-48 mb-6 brightness-0 invert opacity-90 mx-auto md:mx-0">
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Más de 20 años protegiendo familias y empresas en todo el Perú. Confianza, respaldo y asesoría personalizada.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-lg mb-6 flex items-center gap-2 justify-center md:justify-start">
+          <i data-lucide="map-pin" class="text-[#FF6600] w-5 h-5"></i> Contacto
+        </h4>
+        <ul class="space-y-4 text-sm text-gray-400">
+          <li>Av. Ejercito 101 Of. 306, Edif. Nasya I<br>Yanahuara, Arequipa</li>
+          <li class="flex items-center gap-2 justify-center md:justify-start"><i data-lucide="phone" class="w-4 h-4 text-[#FF6600]"></i> 958 325 773 / 958 536 377</li>
+          <li class="flex items-center gap-2 justify-center md:justify-start"><i data-lucide="mail" class="w-4 h-4 text-[#FF6600]"></i> informes@previseguros.com.pe</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold text-lg mb-6">Síguenos</h4>
+        <div class="flex gap-4 justify-center md:justify-start">
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#FF6600] hover:text-white transition text-gray-400"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+      © 2025 PREVISEGUROS. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    lucide.createIcons();
+    // Inicializar iconos de menú móvil (el icono se crea dinámicamente)
+    setTimeout(() => { lucide.createIcons(); }, 100);
+  </script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
