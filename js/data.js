@@ -291,83 +291,140 @@ const CATALOGO_SEGUROS = {
         },
         {
             titulo: "Seguro de Responsabilidad Civil",
-            descripcion: "Indemnización por daños a terceros causados por la actividad del negocio.",
+            descripcion1: "Cubre la indemnización por daños personales o materiales causados a terceros por accidentes resultantes de las actividades de tu negocio.",
+            descripcion2: "Este seguro cubre hasta el límite de la suma asegurada, la indemnización contra los daños personales y/o materiales causados por un accidente producido como resultado directo de las actividades o negocios a los que se dedica el asegurado, y por las cuales el asegurado sea civilmente responsable.",
             descripcionDetallada: `
-                Este seguro cubre hasta el límite de la suma asegurada, la indemnización contra los daños personales y/o materiales causados por un accidente producido como resultado directo de las actividades o negocios a los que se dedica el asegurado.
-                <br><br>
-                <strong class="text-[#FF6600]">CLÁUSULAS PRINCIPALES:</strong>
-                <ul class="list-disc pl-5 mt-2 space-y-1">
-                    <li>RC Contractual y Extracontractual</li>
-                    <li>RC Patronal (Accidentes de empleados)</li>
-                    <li>RC de Productos</li>
-                    <li>RC Ambiental</li>
+                <strong class="text-[#FF6600]">OTRAS CLÁUSULAS Y/O COBERTURAS:</strong>
+                <p class="mt-2 text-gray-600 mb-4">A continuación describimos otras coberturas específicas que se diseñan y adaptan de acuerdo al giro y necesidades particulares de cada negocio:</p>
+                
+                <ul class="grid md:grid-cols-2 gap-x-6 gap-y-2 list-disc pl-5 text-sm text-gray-600">
+                    <li>Responsabilidad Civil de Playas de estacionamiento y Similares</li>
+                    <li>Responsabilidad Civil de Vehículos Ajenos al Servicio del Asegurado</li>
+                    <li>Responsabilidad Civil de Ascensores, Grúas, Montacargas y Escaleras Mecánicas</li>
+                    <li>Responsabilidad Civil para Empresas Dedicadas al Mantenimiento de Ascensores, Grúas, Montacargas y Escaleras Mecánicas</li>
+                    <li>Responsabilidad Civil Extracontractual por Actos de Contratistas Independientes y/o Subcontratistas</li>
+                    <li>Responsabilidad Civil por Trabajos Terminados</li>
+                    <li>Responsabilidad Civil Extracontractual para Clubes, Asociaciones y Academias Deportivas</li>
+                    <li>Responsabilidad Civil durante Eventos Sociales y Culturales</li>
+                    <li>Responsabilidad Civil de Contratistas de Obras</li>
+                    <li>Responsabilidad Civil para Propietarios de Edificios destinados a Vivienda</li>
+                    <li>Responsabilidad Civil por uso de Armas de Fuego</li>
+                    <li>Responsabilidad Civil por Incendio y/o Explosión y/o Daños por Agua y/o Daños por Humo</li>
+                    <li>Responsabilidad Civil de Talleres de Reparación de Vehículos en General</li>
+                    <li>Responsabilidad Civil de Arrendatarios y Ocupantes de Viviendas</li>
+                    <li>Responsabilidad Civil Extracontractual por Accidentes en la Ejecución de Contratos</li>
+                    <li>Responsabilidad Civil por Alimentos y Bebidas</li>
+                    <li>Responsabilidad Civil para Carga</li>
+                    <li>Responsabilidad Civil para Mercadería Peligrosa</li>
+                    <li>Responsabilidad Civil para Empresas de Transporte</li>
+                    <li>Responsabilidad Civil Extracontractual Personal o Familiar</li>
+                    <li>Responsabilidad Civil para Colegios, Universidades e Institutos de Enseñanza</li>
+                    <li>Responsabilidad Civil para Establecimientos de Baños Turcos, Saunas y Similares</li>
+                    <li>Responsabilidad Civil para Cines, Teatros y Salas de Conciertos</li>
+                    <li>Responsabilidad Civil por Uso de Maquinaria Pesada</li>
+                    <li>Responsabilidad Civil para Oficinas</li>
+                    <li>Responsabilidad Civil para Locales y Operaciones</li>
+                    <li>Responsabilidad Civil para Transporte de Personal</li>
+                    <li>Responsabilidad Civil para Empresas de Policía Particular</li>
+                    <li>Responsabilidad Civil por contaminación y/o polución súbita, imprevista y accidental</li>
                 </ul>
             `,
-            img1: "img/responsabilidad.webp",
+            img1: "img/responsabilidad1.webp",
+            img2: "img/responsabilidad2.webp",
             coberturas: [
-                "RC Contractual y Extracontractual",
-                "RC Patronal",
-                "RC de Productos",
-                "RC Ambiental",
-                "RC de Vehículos Ajenos y Maquinaria",
-                "RC de Contratistas y Obras"
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Responsabilidad Civil Contractual</span><span class="text-sm text-gray-600 font-normal mt-1">Cubre la suma que el asegurado, por motivo de haber asumido una responsabilidad por cualquier contrato o convenio, sea obligado legalmente a pagar como indemnización por daños corporales a terceros y/o daños a la propiedad de los mismos.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Responsabilidad Civil Patronal</span><span class="text-sm text-gray-600 font-normal mt-1">Cubre los reclamos que interponga contra el asegurado cualquier miembro del personal en planilla, por lesiones personales sufridas como consecuencia directa e inmediata de accidentes ocurridos en el negocio y que motiven una reclamación adicional a la Ley de Accidentes de Trabajo.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Responsabilidad Civil de Productos</span><span class="text-sm text-gray-600 font-normal mt-1">Cubre todos los reclamos que el asegurado tenga que pagar por Responsabilidad Civil Extracontractual como consecuencia de muerte, lesiones o daño a la propiedad por causa directa del uso o consumo de productos fabricados, vendidos, reparados o distribuidos por el asegurado.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Responsabilidad Civil Ambiental</span><span class="text-sm text-gray-600 font-normal mt-1">Protección frente a reclamos de terceros por daños personales, materiales o gastos de limpieza derivados de contaminación accidental originada por las operaciones del asegurado.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Responsabilidad de Hidrocarburos</span><span class="text-sm text-gray-600 font-normal mt-1">Cobertura especializada que indemniza los daños a terceros derivados de incidentes en la manipulación, almacenamiento, comercialización o transporte de hidrocarburos.</span></div>`
             ]
         },
         {
-            titulo: "EPS",
-            descripcion: "Gestión de servicios de salud privados para trabajadores, complementando a EsSalud.",
+            titulo: "Seguros para el Personal",
+            descripcion1: "Protege el activo más valioso de tu empresa: tus colaboradores. Brindamos coberturas integrales en salud, prevención de riesgos y beneficios de ley.",
+            descripcion2: "Garantiza la tranquilidad y el bienestar de tus trabajadores y sus familias con nuestros seguros diseñados para cumplir con la normativa legal vigente y ofrecer los mejores beneficios médicos y económicos del mercado.",
             descripcionDetallada: `
-                Las EPS gestionan servicios de salud para los trabajadores de una empresa.
-                <br><br>
-                <strong class="text-[#FF6600]">¿CÓMO FUNCIONA?</strong><br>
-                Las empresas aportan el 9% a EsSalud. Al elegir una EPS, el 2.25% va a la EPS y el 6.75% se queda en EsSalud. El trabajador asume el restante de la prima del plan elegido, teniendo así acceso a clínicas privadas.
+                <strong class="text-[#FF6600] text-xl mb-4 block">NUESTROS SEGUROS PARA EL PERSONAL:</strong>
+                <div class="space-y-3">
+                    <a href="detalleSeguro.html?tipo=eps" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-orange-50 hover:text-[#FF6600] transition border border-gray-100">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>EPS</strong>
+                    </a>
+                    <a href="detalleSeguro.html?tipo=sctr" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-orange-50 hover:text-[#FF6600] transition border border-gray-100">
+                        <i data-lucide="shield-alert" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>SCTR</strong>
+                    </a>
+                    <a href="detalleSeguro.html?tipo=seguro-de-vida-ley" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-orange-50 hover:text-[#FF6600] transition border border-gray-100">
+                        <i data-lucide="users" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>Seguro de Vida Ley</strong>
+                    </a>
+                </div>
             `,
-            img1: "img/salud.webp",
+            img1: "img/personal1.webp", 
+            img2: "img/personal2.webp", 
             coberturas: [
-                "Atención en Red de Clínicas Privadas",
-                "Cobertura de Diagnósticos Capa Simple",
-                "Continuidad de Capa Compleja en EsSalud",
-                "Mejores tiempos de atención"
+                "Atención médica en red de clínicas privadas (EPS)",
+                "Atención al 100% por accidentes laborales y enfermedades profesionales (SCTR)",
+                "Pensiones de invalidez y sobrevivencia",
+                "Indemnización por fallecimiento natural o accidental (Vida Ley)"
+            ]
+        },
+        
+        // ==========================================
+        // SUB-PRODUCTOS DE PERSONAL (OCULTOS)
+        // ==========================================
+        {
+            titulo: "EPS",
+            oculto: true,
+            descripcion: `
+                <p class="mb-4">Las Entidades Prestadoras de Salud EPS, son organizaciones cuyo fin es gestionar el financiamiento de servicios a través de redes de salud (clínicas, laboratorios, etc), complementando la cobertura de EsSalud. Las EPS gestionan servicios de salud para los trabajadores de una empresa, con la finalidad de obtener mejores atenciones para su salud y la de sus familias.</p>
+                
+                <strong class="text-[#FF6600]">¿CÓMO FUNCIONA?</strong>
+                <p class="mt-2 text-gray-600 mb-4">Las empresas por ley aportan el 9% de la planilla a ESSALUD para que sus trabajadores puedan atenderse ante la eventualidad de cualquier enfermedad sin hacer distinción para todos los diagnósticos de capa simple (atenciones más frecuentes y menos complicadas, principalmente ambulatorias) y los de capa compleja (casos de mayor severidad).</p>
+                <p class="text-gray-600 mb-4">Al elegir una EPS el 9% que la empresa aportaba a ESSALUD se divide en:</p>
+                <ul class="list-disc pl-5 mb-4 text-sm text-gray-600 space-y-1">
+                    <li><strong>2.25%</strong> para la EPS elegida.</li>
+                    <li><strong>6.75%</strong> se sigue aportando a ESSALUD.</li>
+                </ul>
+                <p class="text-gray-600 text-sm">El trabajador asume el restante de la prima del plan elegido, teniendo así acceso a atención médica en las mejores redes de clínicas, sin perder la cobertura en ESSALUD y a un precio bajo.</p>
+            `,
+            img2: "img/eps2.webp",
+            coberturas: [
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Atención Ambulatoria y Hospitalaria</span><span class="text-sm text-gray-600 font-normal mt-1">Cobertura en una amplia red de clínicas privadas afiliadas para consultas, exámenes y hospitalización (Capa Simple).</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Maternidad y Odontología</span><span class="text-sm text-gray-600 font-normal mt-1">Programas de control de embarazo, parto y atenciones dentales básicas según el plan contratado.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Emergencias 24/7</span><span class="text-sm text-gray-600 font-normal mt-1">Atención inmediata en clínicas frente a urgencias y emergencias médicas accidentales o por enfermedad.</span></div>`
             ]
         },
         {
             titulo: "SCTR",
-            descripcion: "Seguro obligatorio (Salud y Pensión) para actividades de alto riesgo.",
-            descripcionDetallada: `
-                El SCTR es un seguro obligatorio que cubre accidentes de trabajo y enfermedades profesionales.
-                <br><br>
-                <strong class="text-[#FF6600]">COMPONENTES:</strong>
-                <ul class="list-disc pl-5 mt-2 space-y-1">
-                    <li><strong>Salud:</strong> Atención médica y rehabilitación al 100%.</li>
-                    <li><strong>Pensiones:</strong> Pensión vitalicia por invalidez o sobrevivencia.</li>
-                </ul>
-                <br>
-                Cubre accidentes causados en el centro de trabajo y enfermedades profesionales (neumoconiosis, lumbalgias, hipoacusia).
+            oculto: true,
+            descripcion: `
+                <p class="mb-4">El SCTR es un seguro obligatorio, el cual cubre accidentes de trabajo y enfermedades profesionales, tiene dos componentes: <strong>Salud y Pensiones</strong>. Con el primero se cubre la atención médica y rehabilitación del trabajador al 100% hasta su recuperación total. El segundo otorga al trabajador una pensión vitalicia en caso de invalidez o a sus dependientes, en caso de fallecimiento. La pensión en caso de invalidez puede ser total o parcial de acuerdo al grado de incapacidad del trabajador.</p>
             `,
-            img1: "img/sctr.webp",
+            img2: "img/sctr2.webp",
             coberturas: [
-                "Atención médica y rehabilitación 100%",
-                "Pensión por Invalidez o Sobrevivencia",
-                "Gastos de Sepelio"
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">SCTR Salud (Atención Médica al 100%)</span><span class="text-sm text-gray-600 font-normal mt-1">Cubre la atención médica, cirugías, farmacología y rehabilitación del trabajador al 100%, sin copagos ni deducibles, hasta su recuperación total.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">SCTR Pensiones (Invalidez)</span><span class="text-sm text-gray-600 font-normal mt-1">Otorga una pensión al trabajador en caso de quedar con una invalidez (total o parcial) debido al accidente o enfermedad profesional, de acuerdo a su grado de incapacidad.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">SCTR Pensiones (Sobrevivencia y Sepelio)</span><span class="text-sm text-gray-600 font-normal mt-1">En caso de fallecimiento del trabajador, otorga una pensión vitalicia a sus dependientes legales (cónyuge e hijos) y cubre los gastos de sepelio.</span></div>`
             ]
         },
         {
-            titulo: "Vida Ley",
-            descripcion: "Seguro obligatorio para empleados en planilla. Cubre muerte e invalidez.",
-            descripcionDetallada: `
-                El empleador tiene la obligación de contratar este seguro para los empleados que cumplen cuatro años en planilla (obligatorio) y opcional desde los 3 meses.
-                <br><br>
-                Los montos de cobertura están estandarizados (16 o 32 remuneraciones según el caso).
+            titulo: "Seguro de Vida Ley",
+            oculto: true,
+            descripcion: `
+                <p class="mb-4">El Seguro Vida Ley es un seguro obligatorio que el empleador debe contratar en favor de sus trabajadores desde el inicio de la relación laboral, conforme al Decreto Legislativo N.º 688 – Ley de Consolidación de Beneficios Sociales y sus modificatorias, incluyendo el Decreto de Urgencia N.º 044-2019 que reforzó su obligatoriedad desde el primer día de trabajo.</p>
+                
+                <strong class="text-[#FF6600]">¿QUE PASA SI NO SE CONTRATA?</strong>
+                <p class="mt-2 text-gray-600 mb-4">El incumplimiento puede causar sanciones administrativas y multas por parte de la autoridad laboral, además de exponer a la empresa al pago directo de los beneficios asegurados en caso de siniestro.</p>
             `,
-            img1: "img/vidaley.webp",
+            img2: "img/vidaley2.webp",
             coberturas: [
-                "Muerte Natural (16 Remuneraciones)",
-                "Muerte Accidental (32 Remuneraciones)",
-                "Invalidez Total y Permanente (32 Remuneraciones)"
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte Natural</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de 16 sueldos entregados a los beneficiarios legales en caso de fallecimiento por causas naturales o enfermedad.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte Accidental</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de 32 sueldos entregados a los beneficiarios en caso el fallecimiento sea consecuencia directa de un accidente.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Invalidez Total y Permanente por Accidente</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de 32 sueldos entregados en vida al trabajador si un accidente lo deja con una incapacidad permanente que le impida laborar.</span></div>`
             ]
         },
 
-        // --- SUB-PRODUCTOS DE INGENIERÍA (OCULTOS) ---
+        // ==========================================
+        // SUB-PRODUCTOS DE INGENIERÍA (OCULTOS)
+        // ==========================================
         {
             titulo: "Rotura de Maquinaria",
             oculto: true,
