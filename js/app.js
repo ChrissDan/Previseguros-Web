@@ -70,8 +70,8 @@ function initCarousel() {
 
     const startAutoPlay = () => {
         clearInterval(interval);
-        // AQUÍ ESTÁ EL CAMBIO A 8000 (8 segundos)
-        interval = setInterval(() => updateSlide(index + 1), 8000);
+        // AQUÍ ESTÁ EL CAMBIO A 10000 (10 segundos)
+        interval = setInterval(() => updateSlide(index + 1), 10000);
     };
     
     if (nextBtn) nextBtn.addEventListener('click', () => { updateSlide(index + 1); startAutoPlay(); });
