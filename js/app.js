@@ -169,12 +169,14 @@ function initSegurosList() {
     const tabParam = params.get('tab');
 
     if (tabParam === 'EMPRESAS') {
-        activarTab(tabEmpresas); render('EMPRESAS'); scrollToList();
-    } else if (tabParam === 'OBLIGATORIOS') {
-        activarTab(tabObligatorios); render('OBLIGATORIOS'); scrollToList();
-    } else {
-        activarTab(tabPersonas); render('PERSONAS');
-    }
+        activarTab(tabEmpresas); render('EMPRESAS'); scrollToList();
+    } else if (tabParam === 'OBLIGATORIOS') {
+        activarTab(tabObligatorios); render('OBLIGATORIOS'); scrollToList();
+    } else if (tabParam === 'PERSONAS') {
+        activarTab(tabPersonas); render('PERSONAS'); scrollToList(); // ¡Ahora sí hace scroll!
+    } else {
+        activarTab(tabPersonas); render('PERSONAS'); // Carga inicial sin scroll
+    }
 }
 
 /* --- Detalle de Seguro --- */
