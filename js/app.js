@@ -188,9 +188,19 @@ function initDetalleSeguro() {
     
     if (!rawSlug || !container) return; 
 
-    const todos = [ ...CATALOGO_SEGUROS.PERSONAS, ...CATALOGO_SEGUROS.EMPRESAS, ...(CATALOGO_SEGUROS.OBLIGATORIOS || []) ];
     const slugBuscado = limpiarSlug(rawSlug);
-    const s = todos.find(item => limpiarSlug(item.titulo) === slugBuscado);
+    let s;
+
+    // 1. Primero buscamos en la categoría de origen exacta (así no se confunde con duplicados)
+    if (origenParam && CATALOGO_SEGUROS[origenParam]) {
+        s = CATALOGO_SEGUROS[origenParam].find(item => limpiarSlug(item.titulo) === slugBuscado);
+    }
+
+    // 2. Si no lo encuentra (porque es un sub-producto), busca en el catálogo general
+    if (!s) {
+        const todos = [ ...CATALOGO_SEGUROS.PERSONAS, ...CATALOGO_SEGUROS.EMPRESAS, ...(CATALOGO_SEGUROS.OBLIGATORIOS || []) ];
+        s = todos.find(item => limpiarSlug(item.titulo) === slugBuscado);
+    }
     
     if (!s) {
         container.innerHTML = `<div class="text-center py-10"><h2 class="text-2xl font-bold text-gray-700">Seguro no encontrado</h2><a href="seguros.html" class="text-[#FF6600] mt-4 block hover:underline">Volver a Seguros</a></div>`;

@@ -389,8 +389,8 @@ const CATALOGO_SEGUROS = {
                     <a href="detalleSeguro.html?tipo=sctr" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-orange-50 hover:text-[#FF6600] transition border border-gray-100">
                         <i data-lucide="shield-alert" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>SCTR</strong>
                     </a>
-                    <a href="detalleSeguro.html?tipo=seguro-de-vida-ley" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-orange-50 hover:text-[#FF6600] transition border border-gray-100">
-                        <i data-lucide="users" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>Seguro de Vida Ley</strong>
+                    <a href="detalleSeguro.html?tipo=vida-ley" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-orange-50 hover:text-[#FF6600] transition border border-gray-100">
+                        <i data-lucide="users" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>Vida Ley</strong>
                     </a>
                 </div>
             `,
@@ -443,7 +443,7 @@ const CATALOGO_SEGUROS = {
             ]
         },
         {
-            titulo: "Seguro de Vida Ley",
+            titulo: "Vida Ley",
             oculto: true,
             descripcion: `
                 <p class="mb-4">El Seguro Vida Ley es un seguro obligatorio que el empleador debe contratar en favor de sus trabajadores desde el inicio de la relación laboral, conforme al Decreto Legislativo N.º 688 – Ley de Consolidación de Beneficios Sociales y sus modificatorias, incluyendo el Decreto de Urgencia N.º 044-2019 que reforzó su obligatoriedad desde el primer día de trabajo.</p>
@@ -502,14 +502,25 @@ const CATALOGO_SEGUROS = {
     OBLIGATORIOS: [
         {
             titulo: "SOAT",
-            descripcion: "Emisión inmediata. Cubre muerte y gastos médicos por accidentes de tránsito.",
+            descripcion1: "Emisión inmediata. Cubre muerte y gastos médicos por accidentes de tránsito de forma obligatoria.",
+            descripcion2: "Adquiere tu SOAT con nosotros, con alertas de renovación y certificado digital inmediato. Te ofrecemos los mejores precios cotizados en las mejores Aseguradoras del mercado.",
             descripcionDetallada: `
-                Adquiere tu SOAT con nosotros, con alertas de renovación y certificado digital inmediato.
-                Te ofrecemos los mejores precios cotizados en las mejores Aseguradoras.
-                <br><br>
-                Este Seguro cubre la muerte y lesiones corporales que sufran las personas, sean ocupantes o terceros no ocupantes de un vehículo automotor.
+                <p class="mb-4 text-gray-600">Este Seguro cubre la muerte y lesiones corporales que sufran las personas, sean ocupantes o terceros no ocupantes de un vehículo automotor como consecuencia de un accidente de tránsito.</p>
+                <strong class="text-[#FF6600] text-xl mb-4 block">BENEFICIOS DEL SOAT:</strong>
+                <div class="space-y-3 text-gray-600">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <i data-lucide="zap" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>Emisión Inmediata 100% Digital</strong>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <i data-lucide="bell-ring" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>Alertas automáticas de renovación</strong>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100">
+                        <i data-lucide="shield-check" class="w-5 h-5 mr-3 text-[#FF6600]"></i> <strong>Respaldo de las mejores aseguradoras</strong>
+                    </div>
+                </div>
             `,
-            img1: "img/soat.webp",
+            img1: "img/oblSOAT.webp",
+            img2: "img/oblSOAT1.webp",
             coberturas: [
                 `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte por Accidente</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de <strong>4 UIT</strong>.</span></div>`,
                 `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Invalidez Permanente</span><span class="text-sm text-gray-600 font-normal mt-1">Hasta <strong>4 UIT</strong>.</span></div>`,
@@ -520,39 +531,46 @@ const CATALOGO_SEGUROS = {
         },
         {
             titulo: "SCTR",
-            descripcion: "Seguro obligatorio para actividades de alto riesgo. Salud y Pensión.",
+            descripcion1: "Seguro obligatorio para actividades de alto riesgo que brinda cobertura integral de Salud y Pensión a tus trabajadores.",
+            descripcion2: "Este seguro obligatorio brinda cobertura de salud y pensión a los trabajadores de empresas cuyas actividades estén consideradas de alto riesgo por la Ley (Anexo 5 Ley 26790).",
             descripcionDetallada: `
-                Este seguro brinda cobertura de salud y pensión a los trabajadores de empresas obligadas por Ley (Anexo 5 Ley 26790).
-                <br><br>
-                <strong class="text-[#FF6600]">ACTIVIDADES DE ALTO RIESGO:</strong>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm mt-2 bg-gray-50 p-4 rounded-lg border border-gray-100">
+                <p class="mb-4 text-gray-600">Garantiza la atención médica completa y el respaldo económico necesario en caso de accidentes de trabajo o enfermedades profesionales.</p>
+                <strong class="text-[#FF6600] text-xl mb-4 block">ACTIVIDADES DE ALTO RIESGO (EJEMPLOS):</strong>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm mt-2 bg-gray-50 p-4 rounded-lg border border-gray-100 text-gray-600 list-disc pl-8">
                     <li>Minería, Petróleo y Gas</li>
                     <li>Pesca y Extracción de madera</li>
                     <li>Industria Química y Textil</li>
                     <li>Construcción y Electricidad</li>
                     <li>Saneamiento y Salud</li>
                     <li>Estiba y Manipuleo de carga</li>
-                </div>
+                </ul>
             `,
-            img1: "img/sctr.webp",
+            img1: "img/oblSCTR.webp",
+            img2: "img/empPersSCTR.webp",
             coberturas: [
-                "Salud (Atención médica 100%)",
-                "Pensión (Muerte, Invalidez, Sepelio)"
+                "Salud (Atención médica, quirúrgica y farmacológica al 100%)",
+                "Pensión de Sobrevivencia (En caso de muerte)",
+                "Pensión por Invalidez (Temporal o permanente)",
+                "Gastos de Sepelio"
             ]
         },
         {
             titulo: "Vida Ley",
-            descripcion: "Obligatorio (D.L. 688). Muerte natural, accidental e invalidez.",
+            descripcion1: "Seguro de vida obligatorio (D.L. 688) que protege a los trabajadores ante muerte natural, accidental e invalidez.",
+            descripcion2: "Póliza obligatoria de vida para trabajadores empleados u obreros que prestan servicios para un mismo empleador por un tiempo de 4 años, siendo opcional a partir de los 3 meses de servicio.",
             descripcionDetallada: `
-                Póliza obligatoria para trabajadores en planilla a partir de 4 años de servicios (opcional desde 3 meses).
-                <br><br>
-                Algunas Aseguradoras ofrecen coberturas adicionales como valor agregado.
+                <p class="mb-4 text-gray-600">Este seguro otorga un respaldo económico vitalicio a la familia del trabajador en caso de su fallecimiento, o al propio trabajador en caso de invalidez total y permanente.</p>
+                <div class="bg-orange-50 p-4 rounded-lg border border-orange-100 mt-4">
+                    <strong class="text-[#FF6600] flex items-center gap-2"><i data-lucide="plus-circle" class="w-5 h-5"></i> Valor Agregado</strong>
+                    <p class="text-gray-700 text-sm mt-2">Además de las coberturas de ley, algunas Aseguradoras ofrecen coberturas adicionales, beneficios y asistencias exclusivas para tus colaboradores.</p>
+                </div>
             `,
-            img1: "img/vidaley.webp",
+            img1: "img/oblVidaLey.webp",
+            img2: "img/empPersVidaley.webp",
             coberturas: [
-                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte Natural</span><span class="text-sm text-gray-600 font-normal mt-1"><strong>16 Remuneraciones</strong>.</span></div>`,
-                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte Accidental</span><span class="text-sm text-gray-600 font-normal mt-1"><strong>32 Remuneraciones</strong>.</span></div>`,
-                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Invalidez Total y Permanente</span><span class="text-sm text-gray-600 font-normal mt-1"><strong>32 Remuneraciones</strong>.</span></div>`
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte Natural</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de <strong>16 Remuneraciones</strong>.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Muerte Accidental</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de <strong>32 Remuneraciones</strong>.</span></div>`,
+                `<div class="flex flex-col"><span class="font-bold text-gray-900 text-lg">Invalidez Total y Permanente</span><span class="text-sm text-gray-600 font-normal mt-1">Indemnización de <strong>32 Remuneraciones</strong> por accidente.</span></div>`
             ]
         }
     ]
