@@ -87,3 +87,26 @@ html { scroll-behavior: smooth; }
 #menu.hidden {
     display: none; /* Tailwind lo maneja, pero por seguridad */
 }
+
+/*body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    // Ruta exacta a tu imagen de textura
+    background-image: url('img/textura.webp');
+    
+    // Configuración para fondo texturizado sutil
+    background-repeat: repeat; // Para que se repita perfectamente
+    background-size: auto; // Mantiene el tamaño original de la textura sutil 
+    
+    // Control de intensidad
+    opacity: 0.12; // Juega con este valor para hacerla más o menos visible
+    
+    // Comportamiento sutil
+    z-index: 9999; // Lo mantenemos por encima para que no se esconda detrás de bg-white 
+    pointer-events: none; // Indispensable para que los botones funcionen 
+}*/

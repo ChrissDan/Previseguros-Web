@@ -252,30 +252,34 @@
         </div>
 
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up">
+          
+          <a href="detalleSeguro.html?tipo=vida-ley&origen=OBLIGATORIOS" class="block bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up">
             <div class="h-48 md:h-56 rounded-2xl overflow-hidden mb-5 relative">
               <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
-              <img src="img/600x400/msVidaLey.webp" alt="Seguro de Vida" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+              <img src="img/600x400/msVidaLey.webp" alt="Seguro de Vida Ley" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
             </div>
             <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors text-center">Vida Ley</h3>
             <p class="text-gray-500 text-center text-sm md:text-base">Respaldo económico vital para tus colaboradores y sus familias.</p>
-          </div>
-          <div class="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up" data-aos-delay="100">
+          </a>
+
+          <a href="detalleSeguro.html?tipo=sctr&origen=OBLIGATORIOS" class="block bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up" data-aos-delay="100">
             <div class="h-48 md:h-56 rounded-2xl overflow-hidden mb-5 relative">
               <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
-              <img src="img/600x400/msSCTR.webp" alt="Seguro de Salud" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+              <img src="img/600x400/msSCTR.webp" alt="Seguro SCTR" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
             </div>
             <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors text-center">SCTR</h3>
             <p class="text-gray-500 text-center text-sm md:text-base">Seguridad y cobertura total para trabajos de alto riesgo.</p>
-          </div>
-          <div class="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
+          </a>
+
+          <a href="detalleSeguro.html?tipo=soat&origen=OBLIGATORIOS" class="block bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
             <div class="h-48 md:h-56 rounded-2xl overflow-hidden mb-5 relative">
               <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition z-10"></div>
-              <img src="img/600x400/msSOAT.webp" alt="Seguro de Vehículos" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+              <img src="img/600x400/msSOAT.webp" alt="Seguro SOAT" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
             </div>
             <h3 class="font-bold text-2xl mb-2 text-gray-800 group-hover:text-[#FF6600] transition-colors text-center">SOAT</h3>
             <p class="text-gray-500 text-center text-sm md:text-base">Protección médica inmediata ante accidentes de tránsito.</p>
-          </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -356,10 +360,32 @@
       </div>
     </div>
 
-    <div class="border-t border-gray-800 pt-8 text-center text-base text-gray-500">
-      © 2025 PREVISEGUROS. Todos los derechos reservados.
+    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center px-6 max-w-7xl mx-auto text-sm text-gray-500">
+      <p>© 2026 PREVISEGUROS. Todos los derechos reservados.</p>
+      <div class="mt-4 md:mt-0 flex gap-4">
+          <a href="privacidad.html" class="hover:text-white transition">Políticas de Privacidad</a>
+      </div>
     </div>
   </footer>
+
+  <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white w-[90%] max-w-md rounded-3xl p-8 shadow-2xl transform scale-95 transition-transform duration-300 relative">
+        
+        <div class="mx-auto w-16 h-16 bg-orange-100 text-[#FF6600] rounded-full flex items-center justify-center mb-6">
+            <i data-lucide="shield-check" class="w-8 h-8"></i>
+        </div>
+        
+        <h3 class="text-2xl font-bold text-gray-900 text-center mb-3">Tu privacidad es importante</h3>
+        <p class="text-gray-600 text-center mb-6 leading-relaxed text-sm md:text-base">
+            Utilizamos cookies y gestionamos tus datos personales para ofrecerte la mejor experiencia y cotizaciones personalizadas. Al continuar navegando, aceptas nuestras 
+            <a href="privacidad.html" class="text-[#FF6600] font-bold hover:underline">Políticas de Privacidad</a>.
+        </p>
+        
+        <button id="accept-privacy" class="w-full bg-[#FF6600] hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            He leído y acepto
+        </button>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>

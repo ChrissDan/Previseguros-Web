@@ -3,26 +3,62 @@
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Inicializadores de interfaz
     initMobileMenu();
     if (document.querySelector('.carousel-track')) initCarousel();
     if (document.getElementById('lista-seguros')) initSegurosList();
     
-    // 1. PRIMERO INYECTAMOS EL FORMULARIO
+    // Inyección y manejo de formularios
     renderizarFormulario();
-    
-    // 2. LUEGO INICIALIZAMOS LOS DETALLES DEL SEGURO
     if (document.getElementById('detalle-seguro')) initDetalleSeguro();
     
-    // 3. FINALMENTE INICIALIZAMOS LOS EVENTOS DEL FORMULARIO
     const form = document.getElementById('form-cotizar');
     if (form) initFormulario(form);
     initCotizadorDinamico();
 
+    // Librerías externas
     if (typeof AOS !== 'undefined') {
         AOS.init({ duration: 1000, once: true });
     }
     if (window.lucide) lucide.createIcons();
+
+    // INICIALIZADOR DEL MODAL DE PRIVACIDAD
+    initPrivacyModal();
 });
+
+/* ==========================================
+   MODAL DE PRIVACIDAD (Consentimiento por Sesión)
+   ========================================== */
+function initPrivacyModal() {
+    const privacyModal = document.getElementById('privacy-modal');
+    const acceptBtn = document.getElementById('accept-privacy');
+
+    if (privacyModal && acceptBtn) {
+        
+        // CAMBIO: Usamos sessionStorage en lugar de localStorage
+        if (!sessionStorage.getItem('politicasAceptadas')) {
+            privacyModal.classList.remove('hidden');
+            setTimeout(() => {
+                privacyModal.classList.remove('opacity-0');
+                privacyModal.querySelector('div').classList.remove('scale-95');
+                privacyModal.querySelector('div').classList.add('scale-100');
+            }, 50);
+        }
+
+        acceptBtn.addEventListener('click', () => {
+            // CAMBIO: Guardamos la aceptación solo por esta sesión
+            sessionStorage.setItem('politicasAceptadas', 'true');
+            
+            privacyModal.classList.add('opacity-0');
+            privacyModal.querySelector('div').classList.remove('scale-100');
+            privacyModal.querySelector('div').classList.add('scale-95');
+            
+            setTimeout(() => {
+                privacyModal.classList.add('hidden');
+            }, 300);
+        });
+    }
+}
 
 /* --- Funciones Generales --- */
 const limpiarSlug = (texto) => {
@@ -70,7 +106,6 @@ function initCarousel() {
 
     const startAutoPlay = () => {
         clearInterval(interval);
-        // AQUÍ ESTÁ EL CAMBIO A 10000 (10 segundos)
         interval = setInterval(() => updateSlide(index + 1), 10000);
     };
     
@@ -169,14 +204,14 @@ function initSegurosList() {
     const tabParam = params.get('tab');
 
     if (tabParam === 'EMPRESAS') {
-        activarTab(tabEmpresas); render('EMPRESAS'); scrollToList();
-    } else if (tabParam === 'OBLIGATORIOS') {
-        activarTab(tabObligatorios); render('OBLIGATORIOS'); scrollToList();
-    } else if (tabParam === 'PERSONAS') {
-        activarTab(tabPersonas); render('PERSONAS'); scrollToList(); // ¡Ahora sí hace scroll!
-    } else {
-        activarTab(tabPersonas); render('PERSONAS'); // Carga inicial sin scroll
-    }
+        activarTab(tabEmpresas); render('EMPRESAS'); scrollToList();
+    } else if (tabParam === 'OBLIGATORIOS') {
+        activarTab(tabObligatorios); render('OBLIGATORIOS'); scrollToList();
+    } else if (tabParam === 'PERSONAS') {
+        activarTab(tabPersonas); render('PERSONAS'); scrollToList();
+    } else {
+        activarTab(tabPersonas); render('PERSONAS');
+    }
 }
 
 /* --- Detalle de Seguro --- */
@@ -191,12 +226,10 @@ function initDetalleSeguro() {
     const slugBuscado = limpiarSlug(rawSlug);
     let s;
 
-    // 1. Primero buscamos en la categoría de origen exacta (así no se confunde con duplicados)
     if (origenParam && CATALOGO_SEGUROS[origenParam]) {
         s = CATALOGO_SEGUROS[origenParam].find(item => limpiarSlug(item.titulo) === slugBuscado);
     }
 
-    // 2. Si no lo encuentra (porque es un sub-producto), busca en el catálogo general
     if (!s) {
         const todos = [ ...CATALOGO_SEGUROS.PERSONAS, ...CATALOGO_SEGUROS.EMPRESAS, ...(CATALOGO_SEGUROS.OBLIGATORIOS || []) ];
         s = todos.find(item => limpiarSlug(item.titulo) === slugBuscado);
@@ -458,7 +491,7 @@ function initFormulario(form) {
 
 function renderizarFormulario() {
     const contenedor = document.getElementById('contenedor-formulario');
-    if (!contenedor) return; // Si la página no tiene el contenedor, no hace nada
+    if (!contenedor) return;
 
     contenedor.innerHTML = `
         <form id="form-cotizar" class="space-y-6" name="seguros" method="POST" data-netlify="true">
